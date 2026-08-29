@@ -3,521 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasir Naseem — Senior Android Developer</title>
-    <meta name="description" content="Portfolio of Yasir Naseem — Senior Android Developer with 8+ years building native and cross-platform mobile apps with Kotlin, Kotlin Multiplatform (KMP), and Jetpack Compose.">
+    <title>Yasir NASEEM · Senior Android Developer</title>
+    <meta name="description" content="Portfolio of Yasir NASEEM, Senior Android Developer with 8+ years building native and cross-platform mobile apps with Kotlin, Kotlin Multiplatform (KMP), and Jetpack Compose.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
-        :root {
-            --bg:       #0a0a0f;
-            --bg2:      #0d1117;
-            --card:     #161b27;
-            --card2:    #1a1f2e;
-            --accent:   #00d4ff;
-            --glow:     rgba(0,212,255,0.28);
-            --dim:      rgba(0,212,255,0.1);
-            --txt:      #e6edf3;
-            --txt2:     #8b949e;
-            --border:   rgba(0,212,255,0.18);
-            --border2:  rgba(255,255,255,0.06);
+        :root{
+            --bg:#0b0b0f;
+            --bg2:#121218;
+            --bg3:#16161f;
+            --purple:#7f52ff;
+            --magenta:#c811e0;
+            --orange:#ff8a3d;
+            --grad:linear-gradient(120deg,#7f52ff 0%,#c811e0 48%,#ff8a3d 100%);
+            --txt:#f4f4f8;
+            --txt2:#9a9aa8;
+            --line:rgba(255,255,255,.08);
         }
 
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--txt);
-            line-height: 1.6;
-            overflow-x: hidden;
+        html{scroll-behavior:smooth}
+        body{
+            font-family:'Manrope',sans-serif;
+            background:var(--bg);color:var(--txt);
+            line-height:1.6;overflow-x:hidden;
         }
+        img{max-width:100%}
+        ::selection{background:rgba(127,82,255,.4)}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:#0b0b0f}
+        ::-webkit-scrollbar-thumb{background:var(--purple);border-radius:4px}
 
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--bg2); }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
-
-        /* ── NAVBAR ── */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 1rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(14px);
-            background: rgba(10,10,15,0.75);
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
+        .grad-text{
+            background:linear-gradient(100deg,#7f52ff,#c811e0,#ff8a3d,#7f52ff);
+            background-size:300% 100%;
+            -webkit-background-clip:text;background-clip:text;color:transparent;
+            animation:flow 7s linear infinite;
         }
-        nav.scrolled { border-color: var(--border); }
+        @keyframes flow{to{background-position:300% 0}}
 
-        .nav-logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.45rem; font-weight: 800;
-            color: var(--accent); text-decoration: none;
-            letter-spacing: -1px;
+        /* gradient border helper */
+        .gborder{position:relative;background:var(--bg2)}
+        .gborder::before{
+            content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+            background:linear-gradient(130deg,#7f52ff,#c811e0,#ff8a3d);
+            -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+            -webkit-mask-composite:xor;mask-composite:exclude;
+            pointer-events:none;opacity:.4;transition:opacity .3s;
         }
+        .gborder:hover::before{opacity:1}
 
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a {
-            color: var(--txt2); text-decoration: none;
-            font-size: 0.875rem; font-weight: 500; letter-spacing: 0.4px;
-            transition: color 0.25s;
+        /* ── NAV ── */
+        nav{
+            position:fixed;top:0;width:100%;z-index:1000;
+            padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;
+            backdrop-filter:blur(14px);background:rgba(11,11,15,.72);
+            border-bottom:1px solid transparent;transition:border-color .3s;
         }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-        .nav-links a.nav-cta {
-            border: 1px solid var(--accent); color: var(--accent);
-            padding: 0.35rem 0.9rem; border-radius: 6px;
+        nav.scrolled{border-color:var(--line)}
+        .nav-logo{font-family:'Space Grotesk';font-size:1.5rem;font-weight:700;text-decoration:none;letter-spacing:-1px}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{color:var(--txt2);text-decoration:none;font-size:.9rem;font-weight:600;transition:color .25s;position:relative}
+        .nav-links a:hover,.nav-links a.active{color:var(--txt)}
+        .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--grad);border-radius:2px}
+        .nav-links a.nav-cta{
+            padding:.5rem 1.1rem;border-radius:100px;color:#fff;
+            background:linear-gradient(100deg,var(--purple),var(--magenta));
+            box-shadow:0 6px 22px rgba(127,82,255,.35);
         }
-        .nav-links a.nav-cta:hover { background: var(--dim); box-shadow: 0 0 18px var(--glow); }
-
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-        .hamburger span { width: 24px; height: 2px; background: var(--txt); border-radius: 2px; transition: 0.3s; }
+        .nav-links a.nav-cta:hover{color:#fff;filter:brightness(1.1)}
+        .nav-links a.nav-cta::after{display:none}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+        .hamburger span{width:24px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
 
         /* ── HERO ── */
-        #hero {
-            min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            padding: 7rem 2rem 5rem;
-            position: relative; overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute; inset: 0;
+        #hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 1.5rem}
+        .hero-glow{position:absolute;inset:0;z-index:0;
             background:
-                radial-gradient(ellipse 80% 55% at 50% -10%, rgba(0,212,255,0.13) 0%, transparent 60%),
-                radial-gradient(ellipse 35% 35% at 85% 85%, rgba(0,90,200,0.06) 0%, transparent 50%);
-        }
+                radial-gradient(circle at 80% 15%,rgba(255,138,61,.16),transparent 42%),
+                radial-gradient(circle at 15% 88%,rgba(127,82,255,.22),transparent 48%);}
+        .hero-band{position:absolute;top:0;right:0;width:44%;height:100%;z-index:0;
+            background:linear-gradient(135deg,#7f52ff 0%,#c811e0 45%,#ff8a3d 100%);
+            clip-path:polygon(38% 0,100% 0,100% 100%,0 100%);opacity:.12;
+            animation:hue 12s linear infinite;}
+        @keyframes hue{50%{filter:hue-rotate(22deg)}}
+        .hero-grid{position:absolute;inset:0;z-index:0;opacity:.4;
+            background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+            background-size:52px 52px;
+            -webkit-mask:radial-gradient(circle at 50% 45%,#000,transparent 72%);
+            mask:radial-gradient(circle at 50% 45%,#000,transparent 72%);}
+        .hero-content{position:relative;z-index:2;max-width:900px}
+        .hero-greeting{font-family:'JetBrains Mono';color:var(--orange);font-size:.95rem;letter-spacing:1px;margin-bottom:1rem}
+        .hero-name{font-family:'Space Grotesk';font-weight:700;font-size:clamp(3rem,10vw,6.5rem);line-height:.95;letter-spacing:-3px}
+        .hero-tagline{font-family:'JetBrains Mono';color:var(--txt2);margin-top:1.1rem;font-size:clamp(.85rem,2.2vw,1.1rem)}
+        .hero-tagline b{color:var(--purple);font-weight:500}
+        .hero-typing{font-size:1rem;color:var(--txt);margin-top:1.4rem;min-height:1.6rem;font-family:'JetBrains Mono'}
+        .cursor{display:inline-block;width:9px;height:1.1rem;background:var(--orange);margin-left:2px;vertical-align:middle;animation:blink 1s steps(2) infinite}
+        @keyframes blink{50%{opacity:0}}
+        .hero-btns{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+        .btn-primary,.btn-outline{padding:.85rem 1.7rem;border-radius:10px;font-weight:700;font-size:.92rem;text-decoration:none;transition:.25s;display:inline-block}
+        .btn-primary{background:linear-gradient(100deg,var(--purple),var(--magenta));color:#fff;box-shadow:0 8px 30px rgba(127,82,255,.4)}
+        .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08)}
+        .btn-outline{border:1px solid rgba(255,255,255,.2);color:var(--txt)}
+        .btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+        .hero-socials{display:flex;gap:.8rem;justify-content:center;margin-top:2.2rem}
+        .social-btn{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;color:var(--txt2);text-decoration:none;background:var(--bg2);border:1px solid var(--line);transition:.25s}
+        .social-btn:hover{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--purple),var(--orange));transform:translateY(-3px)}
+        .scroll-hint{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:2;text-align:center;color:var(--txt2)}
+        .scroll-hint span{font-family:'JetBrains Mono';font-size:.7rem;letter-spacing:2px;text-transform:uppercase}
+        .arrow-down{width:16px;height:16px;border-right:2px solid var(--orange);border-bottom:2px solid var(--orange);transform:rotate(45deg);margin:.5rem auto 0;animation:bounce 1.8s infinite}
+        @keyframes bounce{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(5px,5px)}}
 
-        .hero-grid {
-            position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
+        /* ── SECTION SHELL ── */
+        section{padding:6rem 2rem;position:relative}
+        .full-wrap{background:var(--bg2)}
+        .wrap,.inner{max-width:1150px;margin:0 auto}
+        .sec-head{margin-bottom:3.2rem}
+        .sec-title{font-family:'Space Grotesk';font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-1.5px;line-height:1.05}
+        .sec-sub{color:var(--txt2);margin-top:.8rem;font-size:1rem;max-width:560px}
+        .sec-line{width:70px;height:4px;background:var(--grad);border-radius:4px;margin-top:1.3rem}
 
-        .hero-content { text-align: center; position: relative; z-index: 1; max-width: 820px; }
-
-        .hero-greeting {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent); font-size: 0.95rem;
-            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.1rem;
-            opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
-        }
-
-        .hero-name {
-            font-size: clamp(2.8rem, 8vw, 5.5rem);
-            font-weight: 900; line-height: 1.08; margin-bottom: 1rem;
-            opacity: 0; animation: fadeUp 0.6s ease 0.4s forwards;
-        }
-        .hero-name span { color: var(--accent); text-shadow: 0 0 50px var(--glow); }
-
-        .hero-tagline {
-            font-size: clamp(1rem, 2.4vw, 1.25rem);
-            color: var(--txt2); margin-bottom: 0.6rem; font-weight: 400;
-            opacity: 0; animation: fadeUp 0.6s ease 0.6s forwards;
-        }
-
-        .hero-typing {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.05rem; color: var(--accent);
-            margin-bottom: 2.5rem; min-height: 1.8em;
-            opacity: 0; animation: fadeUp 0.6s ease 0.8s forwards;
-        }
-
-        .cursor {
-            display: inline-block; width: 2px; height: 1em;
-            background: var(--accent); margin-left: 2px; vertical-align: middle;
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-        .hero-btns {
-            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-            margin-bottom: 3rem;
-            opacity: 0; animation: fadeUp 0.6s ease 1s forwards;
-        }
-
-        .btn-primary {
-            background: var(--accent); color: #05050a;
-            padding: 0.8rem 2rem; border-radius: 8px;
-            text-decoration: none; font-weight: 700; font-size: 0.9rem;
-            box-shadow: 0 0 22px var(--glow);
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 40px var(--glow), 0 10px 28px rgba(0,0,0,0.35); }
-
-        .btn-outline {
-            background: transparent; color: var(--txt);
-            padding: 0.8rem 2rem; border-radius: 8px;
-            text-decoration: none; font-weight: 600; font-size: 0.9rem;
-            border: 1px solid var(--border2);
-            transition: border-color 0.25s, color 0.25s, transform 0.25s;
-        }
-        .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
-
-        .hero-socials {
-            display: flex; gap: 1rem; justify-content: center;
-            opacity: 0; animation: fadeUp 0.6s ease 1.2s forwards;
-        }
-        .social-btn {
-            width: 44px; height: 44px; border-radius: 10px;
-            border: 1px solid var(--border2);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--txt2); text-decoration: none; font-size: 1.05rem;
-            transition: all 0.3s;
-        }
-        .social-btn:hover {
-            border-color: var(--accent); color: var(--accent);
-            background: var(--dim); transform: translateY(-4px);
-            box-shadow: 0 0 18px var(--glow);
-        }
-
-        .scroll-hint {
-            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-            display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-            color: var(--txt2); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
-            opacity: 0; animation: fadeIn 1s ease 2.2s forwards;
-        }
-        .scroll-hint .arrow-down {
-            width: 18px; height: 18px;
-            border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
-            transform: rotate(45deg); animation: bob 1.6s ease infinite;
-        }
-        @keyframes bob { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(6px)} }
-
-        /* ── SECTION COMMON ── */
-        .wrap { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; }
-        .full-wrap { width: 100%; padding: 6rem 2rem; }
-        .full-wrap .inner { max-width: 1200px; margin: 0 auto; }
-
-        .sec-head { text-align: center; margin-bottom: 4rem; }
-        .sec-tag {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent); font-size: 0.82rem;
-            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.7rem;
-        }
-        .sec-title { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; margin-bottom: 0.8rem; }
-        .sec-sub { color: var(--txt2); font-size: 0.95rem; max-width: 580px; margin: 0 auto; }
-        .sec-line {
-            width: 56px; height: 3px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            margin: 1rem auto 0; border-radius: 2px;
-        }
+        /* reveal */
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+        .reveal.in{opacity:1;transform:none}
+        .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
 
         /* ── ABOUT ── */
-        #about { background: var(--bg); }
-
-        .about-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 3rem; align-items: start;
-        }
-
-        .about-text p { color: var(--txt2); font-size: 0.97rem; line-height: 1.85; margin-bottom: 1rem; }
-        .about-text p strong { color: var(--accent); font-weight: 600; }
-
-        .about-meta { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1.5rem; }
-        .meta-row {
-            display: flex; align-items: center; gap: 0.7rem;
-            color: var(--txt2); font-size: 0.88rem;
-        }
-        .meta-row i { color: var(--accent); width: 15px; }
-        .meta-row a { color: var(--txt2); text-decoration: none; transition: color 0.25s; }
-        .meta-row a:hover { color: var(--accent); }
-
-        .edu-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 18px; padding: 2rem;
-            position: relative; overflow: hidden;
-        }
-        .edu-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-        }
-        .edu-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
-        .edu-card .uni { color: var(--accent); font-size: 0.88rem; font-weight: 500; margin-bottom: 0.4rem; }
-        .edu-card .yr { color: var(--txt2); font-size: 0.82rem; margin-bottom: 1rem; }
-        .cgpa {
-            display: inline-flex; align-items: center; gap: 0.45rem;
-            background: var(--dim); border: 1px solid var(--accent);
-            border-radius: 8px; padding: 0.35rem 0.8rem;
-            font-size: 0.84rem; color: var(--accent); font-weight: 600;
-        }
-        .cw { margin-top: 1.5rem; }
-        .cw h4 { font-size: 0.78rem; color: var(--txt2); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.7rem; }
-        .cw-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-        .cw-tag {
-            background: var(--bg2); border: 1px solid var(--border2);
-            border-radius: 6px; padding: 0.28rem 0.65rem;
-            font-size: 0.76rem; color: var(--txt2);
-        }
+        .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2.5rem;align-items:start}
+        .about-text p{margin-bottom:1.1rem;color:#d2d2de}
+        .about-text strong{color:var(--txt);font-weight:700}
+        .about-meta{margin-top:1.8rem;display:flex;flex-direction:column;gap:.75rem}
+        .meta-row{display:flex;align-items:center;gap:.85rem;color:var(--txt2);font-size:.92rem}
+        .meta-row i{color:var(--purple);width:18px;text-align:center}
+        .meta-row a{color:var(--txt2);text-decoration:none;transition:color .2s}
+        .meta-row a:hover{color:var(--orange)}
+        .edu-card{border-radius:18px;padding:1.8rem}
+        .edu-card h3{font-family:'Space Grotesk';font-size:1.35rem;font-weight:700}
+        .edu-card .uni,.edu-card .yr{color:var(--txt2);font-size:.9rem;margin-top:.55rem;display:flex;align-items:center}
+        .edu-card .uni i,.edu-card .yr i{color:var(--orange)}
+        .cw{margin-top:1.4rem}
+        .cw h4{font-family:'JetBrains Mono';font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--txt2);margin-bottom:.8rem}
+        .cw-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+        .cw-tag{font-size:.76rem;padding:.32rem .7rem;border-radius:7px;background:var(--bg3);border:1px solid rgba(127,82,255,.22);color:#c9b8ff}
 
         /* ── SKILLS ── */
-        #skills { background: var(--bg2); }
-
-        .skills-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .skill-box {
-            background: var(--card); border: 1px solid var(--border2);
-            border-radius: 16px; padding: 1.75rem;
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-        .skill-box:hover {
-            border-color: var(--accent); transform: translateY(-5px);
-            box-shadow: 0 10px 32px rgba(0,212,255,0.1);
-        }
-        .skill-box-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.3rem; }
-        .skill-ico {
-            width: 38px; height: 38px; border-radius: 10px;
-            background: var(--dim); border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--accent); font-size: 1rem;
-        }
-        .skill-box-name { font-size: 0.95rem; font-weight: 700; }
-        .skill-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-        .pill {
-            font-family: 'JetBrains Mono', monospace;
-            background: var(--bg2); border: 1px solid var(--border2);
-            border-radius: 7px; padding: 0.32rem 0.7rem;
-            font-size: 0.78rem; color: var(--txt2);
-            transition: all 0.25s;
-        }
-        .pill:hover { border-color: var(--accent); color: var(--accent); background: var(--dim); }
+        .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+        .skill-box{border-radius:16px;padding:1.6rem}
+        .skill-box-head{display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem}
+        .skill-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.15rem;color:#fff;background:linear-gradient(135deg,var(--purple),var(--orange))}
+        .skill-box-name{font-family:'Space Grotesk';font-weight:600;font-size:1.05rem}
+        .skill-pills{display:flex;flex-wrap:wrap;gap:.5rem}
+        .pill{font-family:'JetBrains Mono';font-size:.74rem;padding:.32rem .65rem;border-radius:7px;background:var(--bg3);border:1px solid rgba(255,255,255,.07);color:#c9b8ff}
 
         /* ── EXPERIENCE ── */
-        #experience { background: var(--bg); }
-
-        .timeline { position: relative; padding-left: 1.5rem; }
-        .timeline::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-            width: 2px; background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
-        }
-        .tl-item { position: relative; padding-left: 2rem; padding-bottom: 2.5rem; }
-        .tl-item:last-child { padding-bottom: 0; }
-        .tl-dot {
-            position: absolute; left: -2rem; top: 0.3rem;
-            width: 13px; height: 13px; border-radius: 50%;
-            background: var(--accent); border: 3px solid var(--bg);
-            box-shadow: 0 0 14px var(--glow);
-        }
-        .exp-card {
-            background: var(--card); border: 1px solid var(--border2);
-            border-radius: 16px; padding: 1.75rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .exp-card:hover { border-color: var(--accent); box-shadow: 0 4px 22px rgba(0,212,255,0.1); }
-        .exp-top {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem;
-        }
-        .exp-role { font-size: 1.08rem; font-weight: 700; }
-        .exp-period {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;
-            color: var(--accent); background: var(--dim);
-            border: 1px solid var(--border);
-            padding: 0.22rem 0.6rem; border-radius: 6px;
-        }
-        .exp-co { color: var(--txt2); font-size: 0.88rem; margin-bottom: 1.2rem; }
-        .exp-co i { margin-right: 0.35rem; }
-        .exp-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-        .exp-list li {
-            color: var(--txt2); font-size: 0.88rem;
-            padding-left: 1.2rem; position: relative;
-        }
-        .exp-list li::before { content: '▹'; position: absolute; left: 0; color: var(--accent); }
+        .timeline{position:relative;padding-left:2rem}
+        .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--purple),var(--magenta),var(--orange))}
+        .tl-item{position:relative;margin-bottom:1.8rem}
+        .tl-dot{position:absolute;left:-2rem;top:1.9rem;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--purple);box-shadow:0 0 0 4px rgba(127,82,255,.15);transform:translateX(-1px)}
+        .exp-card{border-radius:16px;padding:1.6rem 1.8rem}
+        .exp-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.4rem}
+        .exp-role{font-family:'Space Grotesk';font-size:1.2rem;font-weight:700}
+        .concur{display:inline-block;vertical-align:middle;margin-left:.6rem;font-family:'JetBrains Mono';font-size:.62rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;padding:.2rem .55rem;border-radius:100px;color:#ffb27a;background:rgba(255,138,61,.12);border:1px solid rgba(255,138,61,.3)}
+        .exp-period{font-family:'JetBrains Mono';font-size:.78rem;color:#fff;padding:.28rem .7rem;border-radius:100px;background:rgba(127,82,255,.16);border:1px solid rgba(127,82,255,.35)}
+        .exp-co{color:var(--orange);font-size:.9rem;font-weight:600;margin:.5rem 0 .9rem;display:flex;align-items:center;gap:.5rem}
+        .exp-list{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+        .exp-list li{position:relative;padding-left:1.3rem;color:#c8c8d4;font-size:.92rem}
+        .exp-list li::before{content:"";position:absolute;left:0;top:.6rem;width:6px;height:6px;border-radius:50%;background:var(--grad)}
+        .exp-list strong{color:var(--txt);font-weight:700}
 
         /* ── PROJECTS ── */
-        #projects { background: var(--bg2); }
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+        .proj-card{border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;transition:transform .25s}
+        .proj-card:hover{transform:translateY(-5px)}
+        .proj-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+        .proj-ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.25rem;color:#fff;background:linear-gradient(135deg,var(--purple),var(--magenta))}
+        .proj-date{font-family:'JetBrains Mono';font-size:.7rem;color:var(--txt2);text-align:right}
+        .proj-name{font-family:'Space Grotesk';font-size:1.2rem;font-weight:700;margin-bottom:.55rem}
+        .proj-desc{color:var(--txt2);font-size:.88rem;line-height:1.55;flex:1}
+        .proj-tech{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+        .tech-tag{font-family:'JetBrains Mono';font-size:.68rem;background:var(--bg3);border:1px solid rgba(255,255,255,.07);color:var(--orange);padding:.22rem .55rem;border-radius:6px}
+        .proj-link{display:inline-flex;align-items:center;gap:.45rem;margin-top:1.1rem;font-size:.82rem;font-weight:700;color:#fff;text-decoration:none;transition:gap .25s}
+        .proj-link span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .proj-link:hover{gap:.75rem}
+        .proj-link i{font-size:.72rem;color:var(--orange)}
 
-        .projects-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 1.5rem;
-        }
-        .proj-card {
-            background: var(--card); border: 1px solid var(--border2);
-            border-radius: 16px; padding: 1.75rem;
-            display: flex; flex-direction: column;
-            position: relative; overflow: hidden;
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-        .proj-card::after {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            opacity: 0; transition: opacity 0.3s;
-        }
-        .proj-card:hover {
-            border-color: var(--accent); transform: translateY(-7px);
-            box-shadow: 0 18px 44px rgba(0,212,255,0.13);
-        }
-        .proj-card:hover::after { opacity: 1; }
-        .proj-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-        .proj-ico {
-            width: 44px; height: 44px; border-radius: 12px;
-            background: var(--dim); border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--accent); font-size: 1.2rem;
-        }
-        .proj-date { font-family: 'JetBrains Mono', monospace; font-size: 0.73rem; color: var(--txt2); }
-        .proj-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .proj-desc { color: var(--txt2); font-size: 0.86rem; line-height: 1.65; flex: 1; margin-bottom: 1.25rem; }
-        .proj-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-        .tech-tag {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.71rem;
-            background: var(--bg2); border: 1px solid var(--border2);
-            color: var(--accent); padding: 0.22rem 0.55rem; border-radius: 5px;
-        }
-        .proj-link {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            margin-top: 1rem; font-size: 0.82rem; font-weight: 600;
-            color: var(--accent); text-decoration: none;
-            transition: gap 0.25s, text-shadow 0.25s;
-        }
-        .proj-link:hover { gap: 0.65rem; text-shadow: 0 0 12px var(--glow); }
-        .proj-link i { font-size: 0.72rem; }
-
-        /* ── CERTS & ACHIEVEMENTS ── */
-        #certifications { background: var(--bg); }
-
-        .cert-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 1.25rem; margin-bottom: 3rem;
-        }
-        .cert-card {
-            background: var(--card); border: 1px solid var(--border2);
-            border-radius: 16px; padding: 1.4rem;
-            display: flex; align-items: flex-start; gap: 1rem;
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-        .cert-card:hover {
-            border-color: var(--accent); transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,212,255,0.1);
-        }
-        .cert-ico {
-            width: 42px; height: 42px; flex-shrink: 0;
-            border-radius: 10px; background: var(--dim); border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--accent); font-size: 1.05rem;
-        }
-        .cert-info h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.2rem; }
-        .cert-info p { font-size: 0.8rem; color: var(--txt2); }
-
-        .ach-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; }
-        .ach-list { display: flex; flex-direction: column; gap: 0.9rem; }
-        .ach-item {
-            background: var(--card); border: 1px solid var(--border2);
-            border-radius: 12px; padding: 1.1rem 1.4rem;
-            display: flex; align-items: center; gap: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .ach-item:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,212,255,0.1); }
-        .ach-medal { font-size: 1.45rem; }
-        .ach-item p { color: var(--txt2); font-size: 0.88rem; }
-        .ach-item strong { color: var(--accent); font-weight: 600; }
+        /* ── EDUCATION ── */
+        .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+        .ed-card{border-radius:16px;padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start}
+        .ed-ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;color:#fff;background:linear-gradient(135deg,var(--purple),var(--orange));flex-shrink:0}
+        .ed-info h4{font-family:'Space Grotesk';font-size:1.1rem;font-weight:700;margin-bottom:.35rem}
+        .ed-info p{color:var(--txt2);font-size:.86rem;line-height:1.5}
 
         /* ── CONTACT ── */
-        #contact { background: var(--bg2); }
-
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-
-        .avail-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
-            border-radius: 20px; padding: 0.38rem 1rem;
-            font-size: 0.8rem; color: #10b981; font-weight: 500; margin-bottom: 1.4rem;
-        }
-        .avail-dot {
-            width: 8px; height: 8px; border-radius: 50%; background: #10b981;
-            animation: pulseg 2s ease infinite;
-        }
-        @keyframes pulseg {
-            0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.4)}
-            50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}
-        }
-
-        .contact-intro { color: var(--txt2); font-size: 0.97rem; line-height: 1.8; margin-bottom: 2rem; }
-
-        .contact-links { display: flex; flex-direction: column; gap: 0.9rem; }
-        .cl-item {
-            display: flex; align-items: center; gap: 1rem;
-            padding: 1rem 1.2rem;
-            background: var(--card); border: 1px solid var(--border2);
-            border-radius: 12px; text-decoration: none;
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-        .cl-item:hover {
-            border-color: var(--accent); transform: translateX(5px);
-            box-shadow: 0 4px 18px rgba(0,212,255,0.1);
-        }
-        .cl-ico {
-            width: 38px; height: 38px; border-radius: 10px;
-            background: var(--dim); display: flex; align-items: center;
-            justify-content: center; color: var(--accent); font-size: 0.95rem; flex-shrink: 0;
-        }
-        .cl-label { font-size: 0.72rem; color: var(--txt2); text-transform: uppercase; letter-spacing: 1px; }
-        .cl-val { font-size: 0.88rem; color: var(--txt); font-weight: 500; }
-        .cl-arr { color: var(--txt2); margin-left: auto; transition: transform 0.25s, color 0.25s; }
-        .cl-item:hover .cl-arr { transform: translateX(4px); color: var(--accent); }
-
-        .stat-panel {
-            text-align: center; padding: 2.5rem;
-            background: var(--card); border: 1px solid var(--border2);
-            border-radius: 18px;
-        }
-        .stat-emoji { font-size: 4.5rem; margin-bottom: 1.5rem; }
-        .stat-panel p { color: var(--txt2); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
-        .stats { display: flex; gap: 1.5rem; justify-content: center; align-items: center; }
-        .stat { text-align: center; }
-        .stat-num { font-size: 2rem; font-weight: 900; color: var(--accent); line-height: 1; }
-        .stat-lbl { font-size: 0.76rem; color: var(--txt2); margin-top: 0.25rem; }
-        .stat-div { width: 1px; height: 40px; background: var(--border2); }
+        .contact-grid{display:grid;grid-template-columns:1fr .85fr;gap:2.5rem;align-items:stretch}
+        .avail-badge{display:inline-flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:700;padding:.45rem 1rem;border-radius:100px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#7ee6a4}
+        .avail-dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e}
+        .contact-intro{color:var(--txt2);margin:1.3rem 0 1.6rem;font-size:1rem;line-height:1.6}
+        .contact-links{display:flex;flex-direction:column;gap:.8rem}
+        .cl-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border-radius:13px;text-decoration:none;background:var(--bg3);border:1px solid var(--line);transition:.25s}
+        .cl-item:hover{border-color:transparent;background:linear-gradient(100deg,rgba(127,82,255,.16),rgba(255,138,61,.12))}
+        .cl-ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--purple),var(--magenta));flex-shrink:0}
+        .cl-label{font-family:'JetBrains Mono';font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:var(--txt2)}
+        .cl-val{color:var(--txt);font-weight:600;font-size:.92rem}
+        .cl-arr{margin-left:auto;color:var(--txt2);transition:.25s}
+        .cl-item:hover .cl-arr{color:var(--orange);transform:translateX(4px)}
+        .stat-panel{border-radius:18px;padding:2.2rem;display:flex;flex-direction:column;justify-content:center;text-align:center}
+        .stat-emoji{font-size:2.4rem;margin-bottom:1rem}
+        .stat-panel>p{color:#d2d2de;font-size:1rem;margin-bottom:1.8rem}
+        .stats{display:flex;align-items:center;justify-content:center;gap:1.2rem}
+        .stat-num{font-family:'Space Grotesk';font-size:2rem;font-weight:700}
+        .stat-lbl{font-size:.74rem;color:var(--txt2);text-transform:uppercase;letter-spacing:1px;font-family:'JetBrains Mono'}
+        .stat-div{width:1px;height:38px;background:var(--line)}
 
         /* ── FOOTER ── */
-        footer {
-            text-align: center; padding: 2rem;
-            border-top: 1px solid var(--border2);
-            color: var(--txt2); font-size: 0.82rem;
-        }
-        footer span { color: var(--accent); }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-
-        .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.65s ease, transform 0.65s ease; }
-        .reveal.in { opacity: 1; transform: translateY(0); }
-        .d1 { transition-delay: 0.1s; }
-        .d2 { transition-delay: 0.2s; }
-        .d3 { transition-delay: 0.3s; }
+        footer{text-align:center;padding:2.5rem 2rem;border-top:1px solid var(--line);color:var(--txt2);font-size:.85rem}
+        footer span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
 
         /* ── RESPONSIVE ── */
-        @media (max-width: 768px) {
-            nav { padding: 1rem 1.25rem; }
-            .nav-links {
-                position: fixed; top: 0; right: -100%; height: 100vh; width: 260px;
-                background: var(--card); flex-direction: column;
-                justify-content: center; align-items: center; gap: 2.5rem;
-                transition: right 0.3s; border-left: 1px solid var(--border);
-            }
-            .nav-links.open { right: 0; }
-            .hamburger { display: flex; }
-            .about-grid, .contact-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .stats { gap: 1rem; }
+        @media(max-width:820px){
+            .about-grid,.contact-grid{grid-template-columns:1fr}
+            .nav-links{position:fixed;top:0;right:-100%;height:100vh;width:70%;max-width:300px;flex-direction:column;justify-content:center;align-items:center;gap:2rem;background:rgba(11,11,15,.97);backdrop-filter:blur(20px);transition:right .35s;padding:2rem}
+            .nav-links.open{right:0}
+            .hamburger{display:flex;z-index:1001}
+            section{padding:4.5rem 1.4rem}
         }
     </style>
 </head>
 <body>
 
-<!-- ── NAVBAR ── -->
+<!-- ══ NAV ══ -->
 <nav id="navbar">
-    <a href="#hero" class="nav-logo">YN</a>
+    <a href="#hero" class="nav-logo grad-text">YN</a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -526,19 +245,18 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
-    <div class="hamburger" id="ham" onclick="toggleNav()">
-        <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- ══ HERO ══ -->
 <section id="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-band"></div>
     <div class="hero-grid"></div>
     <div class="hero-content">
         <p class="hero-greeting">Hello, World! 👋</p>
-        <h1 class="hero-name">Yasir<br><span>Naseem</span></h1>
-        <p class="hero-tagline">Senior Android Developer &nbsp;|&nbsp; Kotlin Multiplatform &nbsp;|&nbsp; Jetpack Compose</p>
+        <h1 class="hero-name">Yasir <span class="grad-text">Naseem</span></h1>
+        <p class="hero-tagline"><b>Senior Android Developer</b> &nbsp;·&nbsp; Kotlin Multiplatform &nbsp;·&nbsp; Jetpack Compose</p>
         <div class="hero-typing"><span id="typed"></span><span class="cursor"></span></div>
         <div class="hero-btns">
             <a href="#projects" class="btn-primary">View My Work</a>
@@ -551,50 +269,32 @@
             <a href="tel:+436604116240" class="social-btn" title="Phone"><i class="fas fa-phone"></i></a>
         </div>
     </div>
-    <div class="scroll-hint">
-        <span>Scroll</span>
-        <div class="arrow-down"></div>
-    </div>
+    <div class="scroll-hint"><span>Scroll</span><div class="arrow-down"></div></div>
 </section>
 
-<!-- ── ABOUT ── -->
+<!-- ══ ABOUT ══ -->
 <section id="about">
     <div class="wrap">
         <div class="sec-head reveal">
-            <p class="sec-tag">// 01. who i am</p>
-            <h2 class="sec-title">About Me</h2>
+            <h2 class="sec-title">About <span class="grad-text">Me</span></h2>
             <div class="sec-line"></div>
         </div>
         <div class="about-grid">
             <div class="about-text reveal">
-                <p>
-                    I'm a <strong>Senior Android Developer</strong> with over <strong>8 years</strong> of proven
-                    expertise in mobile application development, strategic project leadership, and technology
-                    innovation — building native and cross-platform apps with <strong>Kotlin</strong>,
-                    <strong>Kotlin Multiplatform (KMP)</strong>, and <strong>Jetpack Compose</strong>.
-                </p>
-                <p>
-                    I've architected and shipped large-scale products across the UAE and beyond — from ENOC's
-                    KMP super app to COFE's white-label coffee platform — with a focus on clean architecture,
-                    secure payment integrations, and CI/CD automation that elevates user experience and hits
-                    business objectives.
-                </p>
-                <p>
-                    Now based in <strong>Austria</strong> and pursuing a Master's in Industrial Data Science,
-                    I'm open to <strong>full-time roles and freelance work</strong> — bringing a rare blend of
-                    technical excellence, team leadership, and strategic vision.
-                </p>
+                <p>I'm a <strong>Senior Android Developer</strong> with over <strong>8 years</strong> of proven expertise in mobile application development, strategic project leadership, and technology innovation, building native and cross-platform apps with <strong>Kotlin</strong>, <strong>Kotlin Multiplatform (KMP)</strong>, and <strong>Jetpack Compose</strong>.</p>
+                <p>I've architected and shipped large-scale products across the UAE and beyond, from ENOC's KMP super app to COFE's white-label coffee platform, with a focus on clean architecture, secure payment integrations, and CI/CD automation that elevates user experience and hits business objectives.</p>
+                <p>Now based in <strong>Austria</strong> and pursuing a Master's in Industrial Data Science, I'm open to <strong>full-time roles and freelance work</strong>, bringing a rare blend of technical excellence, team leadership, and strategic vision.</p>
                 <div class="about-meta">
-                    <div class="meta-row"><i class="fas fa-map-marker-alt"></i><span>Leoben, Austria &nbsp;·&nbsp; Open to Remote / Relocation</span></div>
+                    <div class="meta-row"><i class="fas fa-map-marker-alt"></i><span>Graz, Austria &nbsp;·&nbsp; Open to Remote and Relocation</span></div>
                     <div class="meta-row"><i class="fas fa-envelope"></i><a href="mailto:yasirnaseem1990@gmail.com">yasirnaseem1990@gmail.com</a></div>
                     <div class="meta-row"><i class="fas fa-phone"></i><a href="tel:+436604116240">+43 660 4116240</a></div>
                     <div class="meta-row"><i class="fab fa-github"></i><a href="https://github.com/yasirnaseem1990" target="_blank">github.com/yasirnaseem1990</a></div>
                 </div>
             </div>
-            <div class="edu-card reveal d2">
+            <div class="edu-card gborder reveal d2">
                 <h3>Master's Degree</h3>
                 <p class="uni"><i class="fas fa-university"></i>&nbsp; Technical University of Leoben, Austria</p>
-                <p class="yr"><i class="fas fa-calendar-alt"></i>&nbsp; 2026 – Present &nbsp;·&nbsp; Industrial Data Science</p>
+                <p class="yr"><i class="fas fa-calendar-alt"></i>&nbsp; 2026 to Present &nbsp;·&nbsp; Industrial Data Science</p>
                 <div class="cw">
                     <h4>Focus Areas</h4>
                     <div class="cw-tags">
@@ -613,32 +313,24 @@
     </div>
 </section>
 
-<!-- ── SKILLS ── -->
+<!-- ══ SKILLS ══ -->
 <section id="skills" class="full-wrap">
     <div class="inner">
         <div class="sec-head reveal">
-            <p class="sec-tag">// 02. what i know</p>
-            <h2 class="sec-title">Technical Skills</h2>
+            <h2 class="sec-title">Technical <span class="grad-text">Skills</span></h2>
             <p class="sec-sub">Technologies, frameworks, and tools I use to build robust applications</p>
             <div class="sec-line"></div>
         </div>
         <div class="skills-grid">
-            <div class="skill-box reveal">
-                <div class="skill-box-head">
-                    <div class="skill-ico"><i class="fas fa-code"></i></div>
-                    <span class="skill-box-name">Languages & Core</span>
-                </div>
+            <div class="skill-box gborder reveal">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-code"></i></div><span class="skill-box-name">Languages and Core</span></div>
                 <div class="skill-pills">
                     <span class="pill">Kotlin</span><span class="pill">Java</span>
-                    <span class="pill">Data Structures</span><span class="pill">Design Patterns</span>
-                    <span class="pill">XML</span>
+                    <span class="pill">Data Structures</span><span class="pill">Design Patterns</span><span class="pill">XML</span>
                 </div>
             </div>
-            <div class="skill-box reveal d1">
-                <div class="skill-box-head">
-                    <div class="skill-ico"><i class="fab fa-android"></i></div>
-                    <span class="skill-box-name">Android & UI</span>
-                </div>
+            <div class="skill-box gborder reveal d1">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fab fa-android"></i></div><span class="skill-box-name">Android and UI</span></div>
                 <div class="skill-pills">
                     <span class="pill">Jetpack Compose</span><span class="pill">Compose Multiplatform</span>
                     <span class="pill">Material Design 3</span><span class="pill">Jetpack Components</span>
@@ -646,49 +338,34 @@
                     <span class="pill">LiveData</span><span class="pill">RxJava</span>
                 </div>
             </div>
-            <div class="skill-box reveal d2">
-                <div class="skill-box-head">
-                    <div class="skill-ico"><i class="fas fa-sitemap"></i></div>
-                    <span class="skill-box-name">Architecture & DI</span>
-                </div>
+            <div class="skill-box gborder reveal d2">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-sitemap"></i></div><span class="skill-box-name">Architecture and DI</span></div>
                 <div class="skill-pills">
                     <span class="pill">Clean Architecture</span><span class="pill">MVVM</span>
                     <span class="pill">MVP</span><span class="pill">MVC</span>
-                    <span class="pill">Kotlin Multiplatform (KMP)</span><span class="pill">HILT</span>
-                    <span class="pill">KOIN</span>
+                    <span class="pill">Kotlin Multiplatform (KMP)</span><span class="pill">HILT</span><span class="pill">KOIN</span>
                 </div>
             </div>
-            <div class="skill-box reveal d3">
-                <div class="skill-box-head">
-                    <div class="skill-ico"><i class="fas fa-network-wired"></i></div>
-                    <span class="skill-box-name">Networking & Data</span>
-                </div>
+            <div class="skill-box gborder reveal">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-network-wired"></i></div><span class="skill-box-name">Networking and Data</span></div>
                 <div class="skill-pills">
                     <span class="pill">Retrofit</span><span class="pill">Ktor</span>
                     <span class="pill">GraphQL Apollo</span><span class="pill">Volley</span>
                     <span class="pill">AndroidFastNetworking</span><span class="pill">Room</span>
-                    <span class="pill">Realm</span><span class="pill">SQLite</span>
-                    <span class="pill">Jetpack DataStore</span>
+                    <span class="pill">Realm</span><span class="pill">SQLite</span><span class="pill">Jetpack DataStore</span>
                 </div>
             </div>
-            <div class="skill-box reveal">
-                <div class="skill-box-head">
-                    <div class="skill-ico"><i class="fas fa-fire"></i></div>
-                    <span class="skill-box-name">Firebase, Sensors & Libraries</span>
-                </div>
+            <div class="skill-box gborder reveal d1">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-fire"></i></div><span class="skill-box-name">Firebase, Sensors and Libraries</span></div>
                 <div class="skill-pills">
                     <span class="pill">Firebase (FCM, Analytics)</span><span class="pill">Firebase ML Kit</span>
                     <span class="pill">Cloud Storage</span><span class="pill">App Distribution</span>
-                    <span class="pill">BLE / iBeacons / Eddystone</span><span class="pill">SignalR</span>
-                    <span class="pill">Socket.IO</span><span class="pill">OCR</span>
-                    <span class="pill">Mobile Sensors</span>
+                    <span class="pill">BLE, iBeacons, Eddystone</span><span class="pill">SignalR</span>
+                    <span class="pill">Socket.IO</span><span class="pill">OCR</span><span class="pill">Mobile Sensors</span>
                 </div>
             </div>
-            <div class="skill-box reveal d1">
-                <div class="skill-box-head">
-                    <div class="skill-ico"><i class="fas fa-credit-card"></i></div>
-                    <span class="skill-box-name">DevOps, Payments & Tools</span>
-                </div>
+            <div class="skill-box gborder reveal d2">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-credit-card"></i></div><span class="skill-box-name">DevOps, Payments and Tools</span></div>
                 <div class="skill-pills">
                     <span class="pill">Bitrise CI</span><span class="pill">Fastlane</span>
                     <span class="pill">GitHub Actions</span><span class="pill">Git</span>
@@ -696,45 +373,26 @@
                     <span class="pill">Stripe</span><span class="pill">Braintree</span>
                     <span class="pill">GoCardless</span><span class="pill">Judo</span>
                     <span class="pill">Tap</span><span class="pill">Network International</span>
-                    <span class="pill">Android Studio</span><span class="pill">Jira</span>
-                    <span class="pill">Figma</span>
+                    <span class="pill">Android Studio</span><span class="pill">Jira</span><span class="pill">Figma</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── EXPERIENCE ── -->
+<!-- ══ EXPERIENCE ══ -->
 <section id="experience">
     <div class="wrap">
         <div class="sec-head reveal">
-            <p class="sec-tag">// 03. where i've worked</p>
-            <h2 class="sec-title">Experience</h2>
+            <h2 class="sec-title">Work <span class="grad-text">Experience</span></h2>
             <p class="sec-sub">My career journey and professional roles</p>
             <div class="sec-line"></div>
         </div>
         <div class="timeline">
             <div class="tl-item reveal">
                 <div class="tl-dot"></div>
-                <div class="exp-card">
-                    <div class="exp-top">
-                        <span class="exp-role">Senior Mobile Developer</span>
-                        <span class="exp-period">Mar 2025 – Apr 2026</span>
-                    </div>
-                    <p class="exp-co"><i class="fas fa-building"></i>ENOC — Emirates National Oil Company (Vendor) &nbsp;·&nbsp; Dubai, UAE</p>
-                    <ul class="exp-list">
-                        <li>Architecting and developing <strong>ENOC Hub</strong>, a large-scale <strong>Kotlin Multiplatform (KMP)</strong> super application, enabling shared business logic and UI across Android and iOS using Jetpack Compose Multiplatform.</li>
-                        <li>Implementing robust application security measures aligned with modern cybersecurity best practices, including secure data handling, authentication flows, and protection against common mobile threats.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tl-item reveal d1">
-                <div class="tl-dot"></div>
-                <div class="exp-card">
-                    <div class="exp-top">
-                        <span class="exp-role">Senior Android Developer</span>
-                        <span class="exp-period">Apr 2022 – Present</span>
-                    </div>
+                <div class="exp-card gborder">
+                    <div class="exp-top"><span class="exp-role">Senior Android Developer</span><span class="exp-period">Apr 2022 to Present</span></div>
                     <p class="exp-co"><i class="fas fa-building"></i>COFE Tech Trading &nbsp;·&nbsp; Abu Dhabi, UAE</p>
                     <ul class="exp-list">
                         <li>Leading development of the <strong>COFE App</strong> and <strong>COFE Cloud</strong>, significantly enhancing market presence.</li>
@@ -745,13 +403,21 @@
                     </ul>
                 </div>
             </div>
+            <div class="tl-item reveal d1">
+                <div class="tl-dot"></div>
+                <div class="exp-card gborder">
+                    <div class="exp-top"><span class="exp-role">Senior Mobile Developer <span class="concur">Concurrent with COFE</span></span><span class="exp-period">Mar 2025 to Apr 2026</span></div>
+                    <p class="exp-co"><i class="fas fa-building"></i>ENOC, Emirates National Oil Company (Vendor) &nbsp;·&nbsp; Dubai, UAE</p>
+                    <ul class="exp-list">
+                        <li>Architected and developed <strong>ENOC Hub</strong>, a large-scale <strong>Kotlin Multiplatform (KMP)</strong> super application, enabling shared business logic and UI across Android and iOS using Jetpack Compose Multiplatform.</li>
+                        <li>Implemented robust application security measures aligned with modern cybersecurity best practices, including secure data handling, authentication flows, and protection against common mobile threats.</li>
+                    </ul>
+                </div>
+            </div>
             <div class="tl-item reveal d2">
                 <div class="tl-dot"></div>
-                <div class="exp-card">
-                    <div class="exp-top">
-                        <span class="exp-role">Senior Android Developer</span>
-                        <span class="exp-period">Aug 2020 – Jun 2022</span>
-                    </div>
+                <div class="exp-card gborder">
+                    <div class="exp-top"><span class="exp-role">Senior Android Developer</span><span class="exp-period">Aug 2020 to Jun 2022</span></div>
                     <p class="exp-co"><i class="fas fa-building"></i>DG Cars &nbsp;·&nbsp; Remote</p>
                     <ul class="exp-list">
                         <li>Spearheaded the development of <strong>NUDGE</strong>, leading a dynamic team of Android developers.</li>
@@ -762,26 +428,20 @@
             </div>
             <div class="tl-item reveal">
                 <div class="tl-dot"></div>
-                <div class="exp-card">
-                    <div class="exp-top">
-                        <span class="exp-role">Senior / Mid-Level Android Developer</span>
-                        <span class="exp-period">Jun 2018 – May 2020</span>
-                    </div>
+                <div class="exp-card gborder">
+                    <div class="exp-top"><span class="exp-role">Senior Android Developer</span><span class="exp-period">Jun 2018 to May 2020</span></div>
                     <p class="exp-co"><i class="fas fa-building"></i>Softoo &nbsp;·&nbsp; Islamabad, Pakistan</p>
                     <ul class="exp-list">
                         <li>Key developer on <strong>SVVISH</strong>, a project for a UK-based client focused on complex graphical data visualizations using the MPAndroidChart graph library.</li>
                         <li>Managed a team of two junior Android developers, delegating tasks strategically based on complexity to enhance efficiency.</li>
-                        <li>Responsible for accurate task-duration estimation during scrum meetings, ensuring realistic and efficient development timelines.</li>
+                        <li>Responsible for accurate task duration estimation during scrum meetings, ensuring realistic and efficient development timelines.</li>
                     </ul>
                 </div>
             </div>
             <div class="tl-item reveal d1">
                 <div class="tl-dot"></div>
-                <div class="exp-card">
-                    <div class="exp-top">
-                        <span class="exp-role">Mid-Level Android Developer</span>
-                        <span class="exp-period">Oct 2017 – May 2018</span>
-                    </div>
+                <div class="exp-card gborder">
+                    <div class="exp-top"><span class="exp-role">Mid-Level Android Developer</span><span class="exp-period">Oct 2017 to May 2018</span></div>
                     <p class="exp-co"><i class="fas fa-building"></i>App in Snap &nbsp;·&nbsp; Islamabad, Pakistan</p>
                     <ul class="exp-list">
                         <li>Independently spearheaded development of the <strong>E-Challan</strong> product, now operational in a metropolitan city.</li>
@@ -791,11 +451,8 @@
             </div>
             <div class="tl-item reveal d2">
                 <div class="tl-dot"></div>
-                <div class="exp-card">
-                    <div class="exp-top">
-                        <span class="exp-role">Junior Android Developer</span>
-                        <span class="exp-period">Apr 2016 – Sep 2017</span>
-                    </div>
+                <div class="exp-card gborder">
+                    <div class="exp-top"><span class="exp-role">Junior Android Developer</span><span class="exp-period">Apr 2016 to Sep 2017</span></div>
                     <p class="exp-co"><i class="fas fa-building"></i>Barefoot &nbsp;·&nbsp; Islamabad, Pakistan</p>
                     <ul class="exp-list">
                         <li>Developed applications using the MVC architecture while adhering to Agile methodologies.</li>
@@ -807,305 +464,192 @@
     </div>
 </section>
 
-<!-- ── PROJECTS ── -->
+<!-- ══ PROJECTS ══ -->
 <section id="projects" class="full-wrap">
     <div class="inner">
         <div class="sec-head reveal">
-            <p class="sec-tag">// 04. what i've built</p>
-            <h2 class="sec-title">Projects</h2>
-            <p class="sec-sub">Highlighting applications I've engineered across mobile and web</p>
+            <h2 class="sec-title">Featured <span class="grad-text">Projects</span></h2>
+            <p class="sec-sub">Applications I've engineered across mobile and cloud, many live on Google Play</p>
             <div class="sec-line"></div>
         </div>
-        
         <div class="projects-grid">
-            <div class="proj-card reveal">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-gas-pump"></i></div>
-                    <span class="proj-date">2025 – 2026</span>
-                </div>
+            <div class="proj-card gborder reveal">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-gas-pump"></i></div><span class="proj-date">2025 to 2026</span></div>
                 <h3 class="proj-name">ENOC Hub</h3>
-                <p class="proj-desc">
-                    A large-scale Kotlin Multiplatform (KMP) super app for Emirates National Oil Company, sharing business logic and UI across Android and iOS via Jetpack Compose Multiplatform — built with secure data handling and modern cybersecurity best practices.
-                </p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Kotlin Multiplatform</span>
-                    <span class="tech-tag">Compose Multiplatform</span>
-                    <span class="tech-tag">Mobile Security</span>
-                </div>
+                <p class="proj-desc">A large-scale Kotlin Multiplatform (KMP) super app for Emirates National Oil Company, sharing business logic and UI across Android and iOS via Jetpack Compose Multiplatform, built with secure data handling and modern cybersecurity best practices.</p>
+                <div class="proj-tech"><span class="tech-tag">Kotlin Multiplatform</span><span class="tech-tag">Compose Multiplatform</span><span class="tech-tag">Mobile Security</span></div>
             </div>
-
-            <div class="proj-card reveal d1">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-mug-hot"></i></div>
-                    <span class="proj-date">Live on Google Play</span>
-                </div>
+            <div class="proj-card gborder reveal d1">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-mug-hot"></i></div><span class="proj-date">Live on Google Play</span></div>
                 <h3 class="proj-name">COFE App</h3>
-                <p class="proj-desc">
-                    A flagship coffee marketplace app connecting users to specialty coffee brands, with advanced mobile ordering features that drove a 50% increase in user acquisition and a 25% reduction in app load times.
-                </p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">Android</span>
-                    <span class="tech-tag">Firebase</span>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=com.cofedistrict" target="_blank" class="proj-link">View on Google Play <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <p class="proj-desc">A flagship coffee marketplace app connecting users to specialty coffee brands, with advanced mobile ordering features that drove a 50% increase in user acquisition and a 25% reduction in app load times.</p>
+                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">Android</span><span class="tech-tag">Firebase</span></div>
+                <a href="https://play.google.com/store/apps/details?id=com.cofedistrict" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
-            <div class="proj-card reveal d2">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-cloud"></i></div>
-                    <span class="proj-date">Platform</span>
-                </div>
+            <div class="proj-card gborder reveal d2">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-cloud"></i></div><span class="proj-date">Platform</span></div>
                 <h3 class="proj-name">COFE Cloud</h3>
                 <p class="proj-desc">A white-label solution for prominent coffee brands where simply changing the theme and color attributes prepares an entire branded application. Ships through fully automated CI/CD pipelines on Bitrise.</p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">KMP</span>
-                    <span class="tech-tag">Bitrise CI</span>
-                </div>
+                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">Bitrise CI</span></div>
             </div>
-            <div class="proj-card reveal">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-gift"></i></div>
-                    <span class="proj-date">Live on Google Play</span>
-                </div>
+            <div class="proj-card gborder reveal">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-gift"></i></div><span class="proj-date">Live on Google Play</span></div>
                 <h3 class="proj-name">Caribou Rewards</h3>
-                <p class="proj-desc">A branded coffee ordering &amp; loyalty app built on the COFE Cloud white-label platform, delivering a fully themed experience with rewards and seamless mobile ordering.</p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">KMP</span>
-                    <span class="tech-tag">White-label</span>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.caribou" target="_blank" class="proj-link">View on Google Play <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <p class="proj-desc">A branded coffee ordering and loyalty app built on the COFE Cloud white-label platform, delivering a fully themed experience with rewards and seamless mobile ordering.</p>
+                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
+                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.caribou" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
-            <div class="proj-card reveal d1">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-mug-saucer"></i></div>
-                    <span class="proj-date">Live on Google Play</span>
-                </div>
+            <div class="proj-card gborder reveal d1">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-mug-saucer"></i></div><span class="proj-date">Live on Google Play</span></div>
                 <h3 class="proj-name">FiLLi</h3>
-                <p class="proj-desc">A branded coffee brand app powered by COFE Cloud — same robust ordering engine, uniquely themed for the FiLLi brand and shipped to the Play Store.</p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">KMP</span>
-                    <span class="tech-tag">White-label</span>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.filli" target="_blank" class="proj-link">View on Google Play <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <p class="proj-desc">A branded coffee brand app powered by COFE Cloud, using the same robust ordering engine, uniquely themed for the FiLLi brand and shipped to the Play Store.</p>
+                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
+                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.filli" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
-            <div class="proj-card reveal d2">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-store"></i></div>
-                    <span class="proj-date">Live on Google Play</span>
-                </div>
+            <div class="proj-card gborder reveal d2">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-store"></i></div><span class="proj-date">Live on Google Play</span></div>
                 <h3 class="proj-name">Barns</h3>
                 <p class="proj-desc">Another live white-label coffee app on the COFE Cloud platform, demonstrating how a single theme-driven architecture powers multiple production brands.</p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">KMP</span>
-                    <span class="tech-tag">White-label</span>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.barns" target="_blank" class="proj-link">View on Google Play <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
+                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.barns" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
-            <div class="proj-card reveal">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-taxi"></i></div>
-                    <span class="proj-date">Live on Google Play</span>
-                </div>
-                <h3 class="proj-name">NUDG — Fast &amp; Safe Taxi Booking</h3>
-                <p class="proj-desc">A go-to solution for hassle-free taxi bookings — schedule trips with ease, track your driver in real time on Google Maps using Sockets, and pay seamlessly through the JUDO payment provider.</p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">Socket.IO</span>
-                    <span class="tech-tag">Google Maps</span>
-                    <span class="tech-tag">Judo</span>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=com.dggroup.nudg.user.app" target="_blank" class="proj-link">View on Google Play <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <div class="proj-card gborder reveal">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-taxi"></i></div><span class="proj-date">Live on Google Play</span></div>
+                <h3 class="proj-name">NUDG Fast &amp; Safe Taxi Booking</h3>
+                <p class="proj-desc">A go to solution for hassle-free taxi bookings. Schedule trips with ease, track your driver in real time on Google Maps using Sockets, and pay seamlessly through the JUDO payment provider.</p>
+                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">Socket.IO</span><span class="tech-tag">Google Maps</span><span class="tech-tag">Judo</span></div>
+                <a href="https://play.google.com/store/apps/details?id=com.dggroup.nudg.user.app" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
-            <div class="proj-card reveal d1">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <span class="proj-date">Live on Google Play</span>
-                </div>
+            <div class="proj-card gborder reveal d1">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-file-invoice-dollar"></i></div><span class="proj-date">Live on Google Play</span></div>
                 <h3 class="proj-name">E-Challan (ITP)</h3>
                 <p class="proj-desc">An innovative digital ticketing solution designed for the Islamabad Traffic Police that simplifies the payment of traffic fines, letting violators pay quickly through JS Mobile Wallet integration.</p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Android</span>
-                    <span class="tech-tag">Payments</span>
-                    <span class="tech-tag">Govt Tech</span>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=pk.pitb.gov.ictp" target="_blank" class="proj-link">View on Google Play <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <div class="proj-tech"><span class="tech-tag">Android</span><span class="tech-tag">Payments</span><span class="tech-tag">Govt Tech</span></div>
+                <a href="https://play.google.com/store/apps/details?id=pk.pitb.gov.ictp" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
-            <div class="proj-card reveal d2">
-                <div class="proj-head">
-                    <div class="proj-ico"><i class="fas fa-calculator"></i></div>
-                    <span class="proj-date">2018 – 2020</span>
-                </div>
+            <div class="proj-card gborder reveal d2">
+                <div class="proj-head"><div class="proj-ico"><i class="fas fa-calculator"></i></div><span class="proj-date">2018 to 2020</span></div>
                 <h3 class="proj-name">Svvish</h3>
-                <p class="proj-desc">An accountancy and taxation app that streamlines access to services, enables convenient upload of transactional data and daily correspondence, and gives SMEs critical financial insights — using MPAndroidChart for complex data visualizations.</p>
-                <div class="proj-tech">
-                    <span class="tech-tag">Android</span>
-                    <span class="tech-tag">MPAndroidChart</span>
-                    <span class="tech-tag">Fintech</span>
-                </div>
+                <p class="proj-desc">An accountancy and taxation app that streamlines access to services, enables convenient upload of transactional data and daily correspondence, and gives SMEs critical financial insights, using MPAndroidChart for complex data visualizations.</p>
+                <div class="proj-tech"><span class="tech-tag">Android</span><span class="tech-tag">MPAndroidChart</span><span class="tech-tag">Fintech</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── EDUCATION ── -->
+<!-- ══ EDUCATION ══ -->
 <section id="education">
     <div class="wrap">
         <div class="sec-head reveal">
-            <p class="sec-tag">// 05. academic background</p>
-            <h2 class="sec-title">Education</h2>
+            <h2 class="sec-title">Edu<span class="grad-text">cation</span></h2>
             <div class="sec-line"></div>
         </div>
-        <div class="cert-grid">
-            <div class="cert-card reveal">
-                <div class="cert-ico"><i class="fas fa-graduation-cap"></i></div>
-                <div class="cert-info">
+        <div class="edu-grid">
+            <div class="ed-card gborder reveal">
+                <div class="ed-ico"><i class="fas fa-graduation-cap"></i></div>
+                <div class="ed-info">
                     <h4>Master in Industrial Data Science</h4>
-                    <p>Technical University of Leoben &nbsp;·&nbsp; Leoben, Austria &nbsp;·&nbsp; 2026 – Present</p>
+                    <p>Technical University of Leoben &nbsp;·&nbsp; Leoben, Austria &nbsp;·&nbsp; 2026 to Present</p>
                 </div>
             </div>
-            <div class="cert-card reveal d1">
-                <div class="cert-ico"><i class="fas fa-university"></i></div>
-                <div class="cert-info">
+            <div class="ed-card gborder reveal d1">
+                <div class="ed-ico"><i class="fas fa-university"></i></div>
+                <div class="ed-info">
                     <h4>B.S. in Computer Science &amp; Engineering</h4>
-                    <p>SZABIST (Shaheed Zulfiqar Ali Bhutto Institute of Science &amp; Technology) &nbsp;·&nbsp; Islamabad, Pakistan &nbsp;·&nbsp; 2012 – 2016</p>
+                    <p>SZABIST (Shaheed Zulfiqar Ali Bhutto Institute of Science &amp; Technology) &nbsp;·&nbsp; Islamabad, Pakistan &nbsp;·&nbsp; 2012 to 2016</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── CONTACT ── -->
+<!-- ══ CONTACT ══ -->
 <section id="contact" class="full-wrap">
     <div class="inner">
         <div class="sec-head reveal">
-            <p class="sec-tag">// 06. say hello</p>
-            <h2 class="sec-title">Get In Touch</h2>
+            <h2 class="sec-title">Get In <span class="grad-text">Touch</span></h2>
             <p class="sec-sub">I'm open to new opportunities and exciting collaborations</p>
             <div class="sec-line"></div>
         </div>
         <div class="contact-grid">
             <div class="reveal">
                 <div class="avail-badge"><div class="avail-dot"></div>Available for opportunities</div>
-                <p class="contact-intro">
-                    Whether you have a project in mind, want to discuss a role, or just want to say hi —
-                    my inbox is always open. I'll get back to you as soon as possible!
-                </p>
+                <p class="contact-intro">Whether you have a project in mind, want to discuss a role, or just want to say hi, my inbox is always open. I'll get back to you as soon as possible.</p>
                 <div class="contact-links">
                     <a href="mailto:yasirnaseem1990@gmail.com" class="cl-item">
                         <div class="cl-ico"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <div class="cl-label">Email</div>
-                            <div class="cl-val">yasirnaseem1990@gmail.com</div>
-                        </div>
+                        <div><div class="cl-label">Email</div><div class="cl-val">yasirnaseem1990@gmail.com</div></div>
                         <i class="fas fa-arrow-right cl-arr"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/yasir-naseem-71a07076/" target="_blank" class="cl-item">
                         <div class="cl-ico"><i class="fab fa-linkedin-in"></i></div>
-                        <div>
-                            <div class="cl-label">LinkedIn</div>
-                            <div class="cl-val">yasir-naseem-71a07076</div>
-                        </div>
+                        <div><div class="cl-label">LinkedIn</div><div class="cl-val">yasir-naseem-71a07076</div></div>
                         <i class="fas fa-arrow-right cl-arr"></i>
                     </a>
                     <a href="https://github.com/yasirnaseem1990" target="_blank" class="cl-item">
                         <div class="cl-ico"><i class="fab fa-github"></i></div>
-                        <div>
-                            <div class="cl-label">GitHub</div>
-                            <div class="cl-val">yasirnaseem1990</div>
-                        </div>
+                        <div><div class="cl-label">GitHub</div><div class="cl-val">yasirnaseem1990</div></div>
                         <i class="fas fa-arrow-right cl-arr"></i>
                     </a>
                     <a href="tel:+436604116240" class="cl-item">
                         <div class="cl-ico"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <div class="cl-label">Phone</div>
-                            <div class="cl-val">+43 660 4116240</div>
-                        </div>
+                        <div><div class="cl-label">Phone</div><div class="cl-val">+43 660 4116240</div></div>
                         <i class="fas fa-arrow-right cl-arr"></i>
                     </a>
                 </div>
             </div>
-            <div class="stat-panel reveal d2">
+            <div class="stat-panel gborder reveal d2">
                 <div class="stat-emoji">📱</div>
-                <p>Shipping production Android apps that<br>reach real users — one release at a time.</p>
+                <p>Shipping production Android apps that reach real users, one release at a time.</p>
                 <div class="stats">
-                    <div class="stat">
-                        <div class="stat-num">8+</div>
-                        <div class="stat-lbl">Years Exp</div>
-                    </div>
+                    <div class="stat"><div class="stat-num grad-text">8+</div><div class="stat-lbl">Years Exp</div></div>
                     <div class="stat-div"></div>
-                    <div class="stat">
-                        <div class="stat-num">15+</div>
-                        <div class="stat-lbl">Projects</div>
-                    </div>
+                    <div class="stat"><div class="stat-num grad-text">15+</div><div class="stat-lbl">Projects</div></div>
                     <div class="stat-div"></div>
-                    <div class="stat">
-                        <div class="stat-num">6+</div>
-                        <div class="stat-lbl">Live Apps</div>
-                    </div>
+                    <div class="stat"><div class="stat-num grad-text">6+</div><div class="stat-lbl">Live Apps</div></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- ══ FOOTER ══ -->
 <footer>
-    <p>Designed &amp; built by <span>Yasir Naseem</span> &nbsp;·&nbsp; 2026</p>
-    <p style="margin-top:0.4rem;font-size:0.72rem;opacity:0.5;">Senior Android Developer &nbsp;·&nbsp; Leoben, Austria</p>
+    <p>Designed and built by <span>Yasir NASEEM</span> &nbsp;·&nbsp; 2026</p>
+    <p style="margin-top:.4rem;font-size:.72rem;opacity:.6">Senior Android Developer &nbsp;·&nbsp; Graz, Austria</p>
 </footer>
 
 <script>
-    // Navbar scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
+    const navbar=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40));
+    function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
 
-    // Mobile nav toggle
-    function toggleNav() {
-        document.getElementById('navLinks').classList.toggle('open');
-    }
-    document.querySelectorAll('.nav-links a').forEach(a =>
-        a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
-    );
-
-    // Typing animation
-    const lines = [
-        'Building native & cross-platform Android apps...',
-        'Kotlin Multiplatform & Jetpack Compose developer...',
+    const lines=[
+        'Building native and cross-platform Android apps...',
+        'Kotlin Multiplatform and Jetpack Compose developer...',
         'Architecting scalable, secure mobile solutions...',
         'Clean architecture. Great UX. Every time.',
     ];
-    let li = 0, ci = 0, del = false;
-    const el = document.getElementById('typed');
-    function tick() {
-        const cur = lines[li];
-        el.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
-        if (!del && ci === cur.length) { del = true; setTimeout(tick, 1800); return; }
-        if (del && ci === 0) { del = false; li = (li + 1) % lines.length; }
-        setTimeout(tick, del ? 45 : 65);
+    let li=0,ci=0,del=false;
+    const el=document.getElementById('typed');
+    function tick(){
+        const cur=lines[li];
+        el.textContent=del?cur.slice(0,--ci):cur.slice(0,++ci);
+        if(!del&&ci===cur.length){del=true;setTimeout(tick,1800);return}
+        if(del&&ci===0){del=false;li=(li+1)%lines.length}
+        setTimeout(tick,del?40:60);
     }
-    setTimeout(tick, 1400);
+    setTimeout(tick,1200);
 
-    // Scroll reveal
-    const revealObs = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    const revealObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
 
-    // Active nav on scroll
-    const secs = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-        let cur = '';
-        secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
-        document.querySelectorAll('.nav-links a').forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === `#${cur}`);
-        });
+    const secs=document.querySelectorAll('section[id]');
+    window.addEventListener('scroll',()=>{
+        let cur='';
+        secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id});
+        document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${cur}`));
     });
 </script>
 </body>
