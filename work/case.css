@@ -61,6 +61,12 @@ nav{position:fixed;top:0;width:100%;z-index:50;display:flex;justify-content:spac
 .btn.p:hover{transform:translateY(-2px)}
 .btn.g{border:1px solid rgba(255,255,255,.2);color:var(--txt)}
 .btn.g:hover{border-color:var(--cyan);color:var(--cyan)}
+.logo-badge{width:66px;height:66px;border-radius:16px;overflow:hidden;margin-bottom:1.3rem;border:1px solid var(--line);background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.logo-badge img{width:100%;height:100%;object-fit:cover;display:block}
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem}
+.shots a{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);transition:transform .25s,border-color .25s}
+.shots a:hover{transform:translateY(-5px);border-color:rgba(56,225,255,.55)}
+.shots img{display:block;width:100%;height:auto}
 footer{text-align:center;padding:2.5rem 2rem;border-top:1px solid var(--line);color:var(--txt2);font-size:.85rem}
 footer .grad{font-weight:700}
 @media(max-width:600px){.chero{padding:7rem 6vw 2.5rem}.nav-links a:not(.nav-cta){display:none}}
