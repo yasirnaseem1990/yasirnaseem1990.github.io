@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yasir Naseem · Senior Android Developer</title>
     <meta name="description" content="Portfolio of Yasir Naseem, Senior Android Developer with 8+ years building native and cross-platform mobile apps with Kotlin, Kotlin Multiplatform (KMP), and Jetpack Compose.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#0e1230">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -136,6 +141,11 @@
         .meta-row i{color:var(--purple);width:18px;text-align:center}
         .meta-row a{color:var(--txt2);text-decoration:none;transition:color .2s}
         .meta-row a:hover{color:var(--orange)}
+        .about-side{display:flex;flex-direction:column;gap:1.6rem;align-items:center}
+        .portrait{position:relative;width:210px;height:210px;border-radius:50%;padding:5px;margin:0;background:linear-gradient(135deg,var(--purple),var(--magenta),var(--orange));box-shadow:0 0 55px rgba(56,225,255,.22);flex-shrink:0}
+        .portrait-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 30%, #26336b, #0e1230 74%)}
+        .portrait-inner img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block;-webkit-user-drag:none;user-select:none;-webkit-user-select:none;pointer-events:none}
+        .portrait-shield{position:absolute;inset:0;border-radius:50%;z-index:2}
         .edu-card{border-radius:18px;padding:1.8rem}
         .edu-card h3{font-family:'Space Grotesk';font-size:1.35rem;font-weight:700}
         .edu-card .uni,.edu-card .yr{color:var(--txt2);font-size:.9rem;margin-top:.55rem;display:flex;align-items:center}
@@ -169,6 +179,15 @@
         .exp-list li{position:relative;padding-left:1.3rem;color:#c8c8d4;font-size:.92rem}
         .exp-list li::before{content:"";position:absolute;left:0;top:.6rem;width:6px;height:6px;border-radius:50%;background:var(--grad)}
         .exp-list strong{color:var(--txt);font-weight:700}
+        /* collapsible earlier experience */
+        .exp-more{display:grid;grid-template-rows:1fr;opacity:1;transition:grid-template-rows .45s ease,opacity .4s ease}
+        .exp-more.collapsed{grid-template-rows:0fr;opacity:0}
+        .exp-more-inner{overflow:hidden;min-height:0;padding-left:2.2rem;margin-left:-2.2rem}
+        .exp-more-wrap{display:flex;justify-content:center;margin-top:.4rem}
+        .exp-toggle{display:inline-flex;align-items:center;gap:.6rem;font-family:'Space Grotesk';font-weight:600;font-size:.9rem;color:var(--txt);background:var(--bg2);border:1px solid var(--line);padding:.7rem 1.5rem;border-radius:100px;cursor:pointer;transition:background .25s,border-color .25s,color .25s}
+        .exp-toggle:hover{border-color:transparent;background:linear-gradient(100deg,rgba(56,225,255,.16),rgba(94,234,212,.12));color:#fff}
+        .exp-toggle .et-chev{color:var(--orange);font-size:.78rem;transition:transform .35s ease}
+        .exp-toggle[aria-expanded="true"] .et-chev{transform:rotate(180deg)}
 
         /* ── PROJECTS ── */
         .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
@@ -284,6 +303,7 @@
         body.drawer-open{overflow:hidden}
         @media(max-width:860px){.drawer{width:100vw}}
     </style>
+<noscript><style>.exp-more{grid-template-rows:1fr!important;opacity:1!important}.exp-toggle{display:none!important}</style></noscript>
 </head>
 <body>
 
@@ -346,7 +366,12 @@
                     <div class="meta-row"><i class="fab fa-github"></i><a href="https://github.com/yasirnaseem1990" target="_blank">github.com/yasirnaseem1990</a></div>
                 </div>
             </div>
-            <div class="edu-card gborder reveal d2">
+            <div class="about-side reveal d2">
+              <figure class="portrait" oncontextmenu="return false;">
+                  <div class="portrait-inner"><img src="assets/yasir-portrait.webp" alt="Yasir Naseem, Senior Android Developer" draggable="false"></div>
+                  <span class="portrait-shield" aria-hidden="true"></span>
+              </figure>
+              <div class="edu-card gborder">
                 <h3>Master's Degree</h3>
                 <p class="uni"><i class="fas fa-university"></i>&nbsp; Technical University of Leoben, Austria</p>
                 <p class="yr"><i class="fas fa-calendar-alt"></i>&nbsp; 2026 to Present &nbsp;·&nbsp; Industrial Data Science</p>
@@ -363,6 +388,7 @@
                         <span class="cw-tag">Mobile Security</span>
                     </div>
                 </div>
+              </div>
             </div>
         </div>
     </div>
@@ -414,7 +440,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="tl-item reveal">
+            <div class="exp-more collapsed" id="expMore"><div class="exp-more-inner">
+<div class="tl-item reveal">
                 <div class="tl-dot"></div>
                 <div class="exp-card gborder">
                     <div class="exp-top"><span class="exp-role">Senior Android Developer</span><span class="exp-period">Jun 2018 to May 2020</span></div>
@@ -447,8 +474,15 @@
                         <li>Built a solution using mobile sensors to detect a driver's movements and alert them not to use the phone while driving.</li>
                     </ul>
                 </div>
-            </div>
+            </div></div></div>
+
         </div>
+            <div class="exp-more-wrap">
+                <button class="exp-toggle" id="expToggle" aria-expanded="false" aria-controls="expMore">
+                    <span class="et-label">Show earlier experience (2016 to 2020)</span>
+                    <i class="fas fa-chevron-down et-chev"></i>
+                </button>
+            </div>
     </div>
 </section>
 
@@ -820,6 +854,28 @@
         let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(build,200);});
     })();
 </script>
+<script>
+// Deter casual copying of the portrait (real protection is the baked-in watermark)
+document.addEventListener('dragstart',function(e){ if(e.target.closest('.portrait')) e.preventDefault(); });
+
+// Show more / show less earlier experience
+(function(){
+    var wrap=document.getElementById('expMore'), btn=document.getElementById('expToggle');
+    if(!wrap||!btn) return;
+    var label=btn.querySelector('.et-label');
+    btn.addEventListener('click',function(){
+        var collapsed=wrap.classList.toggle('collapsed');
+        btn.setAttribute('aria-expanded', String(!collapsed));
+        label.textContent = collapsed ? 'Show earlier experience (2016 to 2020)' : 'Show less';
+        if(!collapsed){
+            wrap.querySelectorAll('.reveal').forEach(function(e){ e.classList.add('in'); });
+        } else {
+            document.getElementById('experience').scrollIntoView({behavior:'smooth', block:'start'});
+        }
+    });
+})();
+</script>
+
 <!-- ══ CASE-STUDY DRAWER ══ -->
 <div class="drawer-backdrop" id="cbackdrop"></div>
 <aside class="drawer" id="cdrawer" role="dialog" aria-modal="true" aria-label="Project case study" aria-hidden="true">
@@ -836,33 +892,48 @@
     const closeBtn=document.getElementById('cclose');
     let lastFocus=null, current=null;
 
-    function open(slug, push){
-        if(current===slug && drawer.classList.contains('open')) return;
+    // load without creating a browser history entry (setting iframe.src would)
+    function loadFrame(url){
+        try{ frame.contentWindow.location.replace(url); }
+        catch(e){ frame.src=url; }
+    }
+    function isOpen(){ return drawer.classList.contains('open'); }
+
+    function openCase(slug, addHistory){
+        if(current===slug && isOpen()) return;
         current=slug;
-        lastFocus=document.activeElement;
+        if(!isOpen()) lastFocus=document.activeElement;
         drawer.classList.add('loading');
         frame.onload=()=>drawer.classList.remove('loading');
-        frame.src='work/'+slug+'.html?embed=1';
+        loadFrame('work/'+slug+'.html?embed=1');
         document.body.classList.add('drawer-open');
         backdrop.classList.add('open');
         drawer.classList.add('open');
         drawer.setAttribute('aria-hidden','false');
         closeBtn.focus();
-        if(push){ history.pushState({caseSlug:slug},'', '#case='+slug); }
+        if(addHistory) history.pushState({caseSlug:slug},'', '#case='+slug);
     }
-    function close(){
+    // close the UI immediately (no history round-trip) — fully closes on first call
+    function closeUI(){
+        if(!isOpen()) return;
         drawer.classList.remove('open');
         backdrop.classList.remove('open');
         document.body.classList.remove('drawer-open');
         drawer.setAttribute('aria-hidden','true');
         current=null;
-        setTimeout(()=>{ if(!drawer.classList.contains('open')){ frame.src='about:blank'; } },400);
+        setTimeout(()=>{ if(!isOpen()) loadFrame('about:blank'); },420);
         if(lastFocus && lastFocus.focus) lastFocus.focus();
     }
-    // close by history so Back button works and URL clears
+    // triggered by X / Esc / backdrop: close now, and tidy the URL/history
     function requestClose(){
-        if(location.hash.indexOf('#case=')===0){ history.back(); }
-        else { close(); }
+        if(history.state && history.state.caseSlug){
+            history.back();           // pops our pushed entry -> popstate -> closeUI()
+        } else {
+            if(location.hash.indexOf('#case=')===0){
+                history.replaceState({},'',location.pathname+location.search);
+            }
+            closeUI();
+        }
     }
 
     // Intercept case-study links (any anchor pointing at work/*.html)
@@ -873,23 +944,23 @@
         const m=a.getAttribute('href').match(/work\/([^.\/?#]+)\.html/);
         if(!m) return;
         e.preventDefault();
-        open(m[1], true);
+        openCase(m[1], true);
     });
 
     closeBtn.addEventListener('click', requestClose);
     backdrop.addEventListener('click', requestClose);
     document.addEventListener('keydown',function(e){
-        if(e.key==='Escape' && drawer.classList.contains('open')) requestClose();
+        if(e.key==='Escape' && isOpen()) requestClose();
     });
 
     // Deep-linking: Back/Forward and initial load
     window.addEventListener('popstate',function(){
         const m=location.hash.match(/^#case=([^&]+)/);
-        if(m) open(decodeURIComponent(m[1]), false);
-        else if(drawer.classList.contains('open')) close();
+        if(m){ openCase(decodeURIComponent(m[1]), false); }
+        else { closeUI(); }
     });
     const init=location.hash.match(/^#case=([^&]+)/);
-    if(init) open(decodeURIComponent(init[1]), false);
+    if(init) openCase(decodeURIComponent(init[1]), false);
 })();
 </script>
 </body>
