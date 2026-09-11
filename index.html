@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasir NASEEM · Senior Android Developer</title>
-    <meta name="description" content="Portfolio of Yasir NASEEM, Senior Android Developer with 8+ years building native and cross-platform mobile apps with Kotlin, Kotlin Multiplatform (KMP), and Jetpack Compose.">
+    <title>Yasir Naseem · Senior Android Developer</title>
+    <meta name="description" content="Portfolio of Yasir Naseem, Senior Android Developer with 8+ years building native and cross-platform mobile apps with Kotlin, Kotlin Multiplatform (KMP), and Jetpack Compose.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -185,6 +185,10 @@
         .proj-link span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
         .proj-link:hover{gap:.75rem}
         .proj-link i{font-size:.72rem;color:var(--orange)}
+        .proj-actions{display:flex;align-items:center;gap:1.1rem;margin-top:1.1rem;flex-wrap:wrap}
+        .proj-actions .proj-link{margin-top:0}
+        .proj-play{font-family:'JetBrains Mono';font-size:.73rem;color:var(--txt2);text-decoration:none;transition:color .2s}
+        .proj-play:hover{color:var(--orange)}
 
         /* ── EDUCATION ── */
         .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
@@ -251,7 +255,7 @@
     <div class="hero-grid"></div>
     <div class="hero-content">
         <p class="hero-greeting">Hello, World! 👋</p>
-        <h1 class="hero-name">Yasir <span class="grad-text">NASEEM</span></h1>
+        <h1 class="hero-name">Yasir <span class="grad-text">Naseem</span></h1>
         <p class="hero-tagline"><b>Senior Android Developer</b> &nbsp;·&nbsp; Kotlin Multiplatform &nbsp;·&nbsp; Jetpack Compose</p>
         <div class="hero-typing"><span id="typed"></span><span class="cursor"></span></div>
         <div class="hero-btns">
@@ -480,7 +484,10 @@
                 <h3 class="proj-name">COFE App</h3>
                 <p class="proj-desc">A flagship coffee marketplace app connecting users to specialty coffee brands, with advanced mobile ordering features that drove a 50% increase in user acquisition and a 25% reduction in app load times.</p>
                 <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">Android</span><span class="tech-tag">Firebase</span></div>
-                <a href="https://play.google.com/store/apps/details?id=com.cofedistrict" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <div class="proj-actions">
+                    <a href="work/cofe-app.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.cofedistrict" target="_blank" class="proj-play">Google Play ↗</a>
+                </div>
             </div>
             <div class="proj-card gborder reveal d2">
                 <div class="proj-head"><div class="proj-ico"><i class="fas fa-cloud"></i></div><span class="proj-date">Platform</span></div>
@@ -493,21 +500,30 @@
                 <h3 class="proj-name">Caribou Rewards</h3>
                 <p class="proj-desc">A branded coffee ordering and loyalty app built on the COFE Cloud white-label platform, delivering a fully themed experience with rewards and seamless mobile ordering.</p>
                 <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
-                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.caribou" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <div class="proj-actions">
+                    <a href="work/caribou-rewards.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://play.google.com/store/apps/details?id=cloud.cofe.caribou" target="_blank" class="proj-play">Google Play ↗</a>
+                </div>
             </div>
             <div class="proj-card gborder reveal d1">
                 <div class="proj-head"><div class="proj-ico"><i class="fas fa-mug-saucer"></i></div><span class="proj-date">Live on Google Play</span></div>
                 <h3 class="proj-name">FiLLi</h3>
                 <p class="proj-desc">A branded coffee brand app powered by COFE Cloud, using the same robust ordering engine, uniquely themed for the FiLLi brand and shipped to the Play Store.</p>
                 <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
-                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.filli" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <div class="proj-actions">
+                    <a href="work/filli.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://play.google.com/store/apps/details?id=cloud.cofe.filli" target="_blank" class="proj-play">Google Play ↗</a>
+                </div>
             </div>
             <div class="proj-card gborder reveal d2">
                 <div class="proj-head"><div class="proj-ico"><i class="fas fa-store"></i></div><span class="proj-date">Live on Google Play</span></div>
                 <h3 class="proj-name">Barns</h3>
                 <p class="proj-desc">Another live white-label coffee app on the COFE Cloud platform, demonstrating how a single theme-driven architecture powers multiple production brands.</p>
                 <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
-                <a href="https://play.google.com/store/apps/details?id=cloud.cofe.barns" target="_blank" class="proj-link"><span>View on Google Play</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <div class="proj-actions">
+                    <a href="work/barns.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://play.google.com/store/apps/details?id=cloud.cofe.barns" target="_blank" class="proj-play">Google Play ↗</a>
+                </div>
             </div>
             <div class="proj-card gborder reveal">
                 <div class="proj-head"><div class="proj-ico"><i class="fas fa-taxi"></i></div><span class="proj-date">Live on Google Play</span></div>
@@ -611,8 +627,8 @@
 
 <!-- ══ FOOTER ══ -->
 <footer>
-    <p>Designed and built by <span>Yasir NASEEM</span> &nbsp;·&nbsp; 2026</p>
-    <p style="margin-top:.4rem;font-size:.72rem;opacity:.6">Senior Android Developer &nbsp;·&nbsp; Graz, Austria</p>
+    <p>Designed and built by <span>Yasir Naseem</span> &nbsp;·&nbsp; 2026</p>
+    <p style="margin-top:.4rem;font-size:.72rem;opacity:.6">Senior Android Developer &nbsp;·&nbsp; Leoben, Austria</p>
 </footer>
 
 <script>
