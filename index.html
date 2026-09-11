@@ -269,6 +269,20 @@
             .hamburger{display:flex;z-index:1001}
             section{padding:4.5rem 1.4rem}
         }
+        /* ── CASE-STUDY DRAWER ── */
+        .drawer-backdrop{position:fixed;inset:0;z-index:2000;background:rgba(4,6,14,.62);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .35s ease}
+        .drawer-backdrop.open{opacity:1;visibility:visible}
+        .drawer{position:fixed;top:0;right:0;height:100%;width:min(720px,64vw);z-index:2001;background:var(--bg);box-shadow:-24px 0 70px rgba(0,0,0,.55);transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;will-change:transform}
+        .drawer.open{transform:translateX(0)}
+        .drawer-bar{position:absolute;top:0;right:0;left:0;height:0;z-index:3}
+        .drawer-close{position:absolute;top:1rem;right:1rem;z-index:4;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(20,26,56,.85);backdrop-filter:blur(10px);color:var(--txt);font-size:1.05rem;cursor:pointer;display:grid;place-items:center;transition:transform .25s,background .25s,color .25s}
+        .drawer-close:hover{background:var(--purple);color:#06121f;transform:rotate(90deg)}
+        .drawer-frame{flex:1;width:100%;border:0;background:var(--bg)}
+        .drawer-load{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;width:34px;height:34px;border:3px solid rgba(56,225,255,.25);border-top-color:var(--purple);border-radius:50%;animation:spin .8s linear infinite;opacity:0;transition:opacity .2s}
+        .drawer.loading .drawer-load{opacity:1}
+        @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+        body.drawer-open{overflow:hidden}
+        @media(max-width:860px){.drawer{width:100vw}}
     </style>
 </head>
 <body>
@@ -278,9 +292,9 @@
     <a href="#hero" class="nav-logo grad-text">YN</a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
@@ -298,7 +312,7 @@
         <p class="hero-tagline"><b>Senior Android Developer</b> &nbsp;·&nbsp; Kotlin Multiplatform &nbsp;·&nbsp; Jetpack Compose</p>
         <div class="hero-typing"><span id="typed"></span><span class="cursor"></span></div>
         <div class="hero-btns">
-            <a href="https://calendly.com/yasirnaseem/30min" target="_blank" rel="noopener" class="btn-primary">Book a 30-min call →</a>
+            <a href="https://calendly.com/yasirnaseem" target="_blank" rel="noopener" class="btn-primary">Book a 30-min call →</a>
             <a href="assets/Yasir-Naseem-Resume.pdf" target="_blank" class="btn-outline">Résumé (PDF)</a>
             <a href="https://www.linkedin.com/in/yasir-naseem-71a07076/" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
             <a href="#projects" class="btn-outline">View My Work</a>
@@ -326,7 +340,7 @@
                 <p>I've architected and shipped large-scale products across the UAE and beyond, from ENOC's KMP super app to COFE's white-label coffee platform, with a focus on clean architecture, secure payment integrations, and CI/CD automation that elevates user experience and hits business objectives.</p>
                 <p>Now based in <strong>Austria</strong> and pursuing a Master's in Industrial Data Science, I'm open to <strong>full-time roles and freelance work</strong>, bringing a rare blend of technical excellence, team leadership, and strategic vision.</p>
                 <div class="about-meta">
-                    <div class="meta-row"><i class="fas fa-map-marker-alt"></i><span>Graz, Austria &nbsp;·&nbsp; Open to Remote and Relocation</span></div>
+                    <div class="meta-row"><i class="fas fa-map-marker-alt"></i><span>Leoben, Austria &nbsp;·&nbsp; Open to Remote and Relocation</span></div>
                     <div class="meta-row"><i class="fas fa-envelope"></i><a href="mailto:yasirnaseem1990@gmail.com">yasirnaseem1990@gmail.com</a></div>
                     <div class="meta-row"><i class="fas fa-phone"></i><a href="tel:+436604116240">+43 660 4116240</a></div>
                     <div class="meta-row"><i class="fab fa-github"></i><a href="https://github.com/yasirnaseem1990" target="_blank">github.com/yasirnaseem1990</a></div>
@@ -354,75 +368,8 @@
     </div>
 </section>
 
-<!-- ══ SKILLS ══ -->
-<section id="skills" class="full-wrap">
-    <div class="inner">
-        <div class="sec-head reveal">
-            <h2 class="sec-title">Technical <span class="grad-text">Skills</span></h2>
-            <p class="sec-sub">Technologies, frameworks, and tools I use to build robust applications</p>
-            <div class="sec-line"></div>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-box gborder reveal">
-                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-code"></i></div><span class="skill-box-name">Languages and Core</span></div>
-                <div class="skill-pills">
-                    <span class="pill">Kotlin</span><span class="pill">Java</span>
-                    <span class="pill">Data Structures</span><span class="pill">Design Patterns</span><span class="pill">XML</span>
-                </div>
-            </div>
-            <div class="skill-box gborder reveal d1">
-                <div class="skill-box-head"><div class="skill-ico"><i class="fab fa-android"></i></div><span class="skill-box-name">Android and UI</span></div>
-                <div class="skill-pills">
-                    <span class="pill">Jetpack Compose</span><span class="pill">Compose Multiplatform</span>
-                    <span class="pill">Material Design 3</span><span class="pill">Jetpack Components</span>
-                    <span class="pill">Coroutines</span><span class="pill">Flows</span>
-                    <span class="pill">LiveData</span><span class="pill">RxJava</span>
-                </div>
-            </div>
-            <div class="skill-box gborder reveal d2">
-                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-sitemap"></i></div><span class="skill-box-name">Architecture and DI</span></div>
-                <div class="skill-pills">
-                    <span class="pill">Clean Architecture</span><span class="pill">MVVM</span>
-                    <span class="pill">MVP</span><span class="pill">MVC</span>
-                    <span class="pill">Kotlin Multiplatform (KMP)</span><span class="pill">HILT</span><span class="pill">KOIN</span>
-                </div>
-            </div>
-            <div class="skill-box gborder reveal">
-                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-network-wired"></i></div><span class="skill-box-name">Networking and Data</span></div>
-                <div class="skill-pills">
-                    <span class="pill">Retrofit</span><span class="pill">Ktor</span>
-                    <span class="pill">GraphQL Apollo</span><span class="pill">Volley</span>
-                    <span class="pill">AndroidFastNetworking</span><span class="pill">Room</span>
-                    <span class="pill">Realm</span><span class="pill">SQLite</span><span class="pill">Jetpack DataStore</span>
-                </div>
-            </div>
-            <div class="skill-box gborder reveal d1">
-                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-fire"></i></div><span class="skill-box-name">Firebase, Sensors and Libraries</span></div>
-                <div class="skill-pills">
-                    <span class="pill">Firebase (FCM, Analytics)</span><span class="pill">Firebase ML Kit</span>
-                    <span class="pill">Cloud Storage</span><span class="pill">App Distribution</span>
-                    <span class="pill">BLE, iBeacons, Eddystone</span><span class="pill">SignalR</span>
-                    <span class="pill">Socket.IO</span><span class="pill">OCR</span><span class="pill">Mobile Sensors</span>
-                </div>
-            </div>
-            <div class="skill-box gborder reveal d2">
-                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-credit-card"></i></div><span class="skill-box-name">DevOps, Payments and Tools</span></div>
-                <div class="skill-pills">
-                    <span class="pill">Bitrise CI</span><span class="pill">Fastlane</span>
-                    <span class="pill">GitHub Actions</span><span class="pill">Git</span>
-                    <span class="pill">Bitbucket</span><span class="pill">Sourcetree</span>
-                    <span class="pill">Stripe</span><span class="pill">Braintree</span>
-                    <span class="pill">GoCardless</span><span class="pill">Judo</span>
-                    <span class="pill">Tap</span><span class="pill">Network International</span>
-                    <span class="pill">Android Studio</span><span class="pill">Jira</span><span class="pill">Figma</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ══ EXPERIENCE ══ -->
-<section id="experience">
+<section id="experience" class="full-wrap">
     <div class="wrap">
         <div class="sec-head reveal">
             <h2 class="sec-title">Work <span class="grad-text">Experience</span></h2>
@@ -506,7 +453,7 @@
 </section>
 
 <!-- ══ PROJECTS ══ -->
-<section id="projects" class="full-wrap">
+<section id="projects">
     <div class="inner">
         <div class="sec-head reveal">
             <h2 class="sec-title">Featured <span class="grad-text">Projects</span></h2>
@@ -656,6 +603,73 @@
     </div>
 </section>
 
+<!-- ══ SKILLS ══ -->
+<section id="skills" class="full-wrap">
+    <div class="inner">
+        <div class="sec-head reveal">
+            <h2 class="sec-title">Technical <span class="grad-text">Skills</span></h2>
+            <p class="sec-sub">Technologies, frameworks, and tools I use to build robust applications</p>
+            <div class="sec-line"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-box gborder reveal">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-code"></i></div><span class="skill-box-name">Languages and Core</span></div>
+                <div class="skill-pills">
+                    <span class="pill">Kotlin</span><span class="pill">Java</span>
+                    <span class="pill">Data Structures</span><span class="pill">Design Patterns</span><span class="pill">XML</span>
+                </div>
+            </div>
+            <div class="skill-box gborder reveal d1">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fab fa-android"></i></div><span class="skill-box-name">Android and UI</span></div>
+                <div class="skill-pills">
+                    <span class="pill">Jetpack Compose</span><span class="pill">Compose Multiplatform</span>
+                    <span class="pill">Material Design 3</span><span class="pill">Jetpack Components</span>
+                    <span class="pill">Coroutines</span><span class="pill">Flows</span>
+                    <span class="pill">LiveData</span><span class="pill">RxJava</span>
+                </div>
+            </div>
+            <div class="skill-box gborder reveal d2">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-sitemap"></i></div><span class="skill-box-name">Architecture and DI</span></div>
+                <div class="skill-pills">
+                    <span class="pill">Clean Architecture</span><span class="pill">MVVM</span>
+                    <span class="pill">MVP</span><span class="pill">MVC</span>
+                    <span class="pill">Kotlin Multiplatform (KMP)</span><span class="pill">HILT</span><span class="pill">KOIN</span>
+                </div>
+            </div>
+            <div class="skill-box gborder reveal">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-network-wired"></i></div><span class="skill-box-name">Networking and Data</span></div>
+                <div class="skill-pills">
+                    <span class="pill">Retrofit</span><span class="pill">Ktor</span>
+                    <span class="pill">GraphQL Apollo</span><span class="pill">Volley</span>
+                    <span class="pill">AndroidFastNetworking</span><span class="pill">Room</span>
+                    <span class="pill">Realm</span><span class="pill">SQLite</span><span class="pill">Jetpack DataStore</span>
+                </div>
+            </div>
+            <div class="skill-box gborder reveal d1">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-fire"></i></div><span class="skill-box-name">Firebase, Sensors and Libraries</span></div>
+                <div class="skill-pills">
+                    <span class="pill">Firebase (FCM, Analytics)</span><span class="pill">Firebase ML Kit</span>
+                    <span class="pill">Cloud Storage</span><span class="pill">App Distribution</span>
+                    <span class="pill">BLE, iBeacons, Eddystone</span><span class="pill">SignalR</span>
+                    <span class="pill">Socket.IO</span><span class="pill">OCR</span><span class="pill">Mobile Sensors</span>
+                </div>
+            </div>
+            <div class="skill-box gborder reveal d2">
+                <div class="skill-box-head"><div class="skill-ico"><i class="fas fa-credit-card"></i></div><span class="skill-box-name">DevOps, Payments and Tools</span></div>
+                <div class="skill-pills">
+                    <span class="pill">Bitrise CI</span><span class="pill">Fastlane</span>
+                    <span class="pill">GitHub Actions</span><span class="pill">Git</span>
+                    <span class="pill">Bitbucket</span><span class="pill">Sourcetree</span>
+                    <span class="pill">Stripe</span><span class="pill">Braintree</span>
+                    <span class="pill">GoCardless</span><span class="pill">Judo</span>
+                    <span class="pill">Tap</span><span class="pill">Network International</span>
+                    <span class="pill">Android Studio</span><span class="pill">Jira</span><span class="pill">Figma</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ══ EDUCATION ══ -->
 <section id="education">
     <div class="wrap">
@@ -735,7 +749,7 @@
 <!-- ══ FOOTER ══ -->
 <footer>
     <p>Designed and built by <span>Yasir Naseem</span> &nbsp;·&nbsp; 2026</p>
-    <p style="margin-top:.4rem;font-size:.72rem;opacity:.6">Senior Android Developer &nbsp;·&nbsp; Graz, Austria</p>
+    <p style="margin-top:.4rem;font-size:.72rem;opacity:.6">Senior Android Developer &nbsp;·&nbsp; Leoben, Austria</p>
 </footer>
 
 <script>
@@ -805,6 +819,78 @@
         build();draw();
         let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(build,200);});
     })();
+</script>
+<!-- ══ CASE-STUDY DRAWER ══ -->
+<div class="drawer-backdrop" id="cbackdrop"></div>
+<aside class="drawer" id="cdrawer" role="dialog" aria-modal="true" aria-label="Project case study" aria-hidden="true">
+    <button class="drawer-close" id="cclose" aria-label="Close preview" title="Close (Esc)"><i class="fas fa-xmark"></i></button>
+    <div class="drawer-load"></div>
+    <iframe class="drawer-frame" id="cframe" title="Project case study preview"></iframe>
+</aside>
+
+<script>
+(function(){
+    const drawer=document.getElementById('cdrawer');
+    const backdrop=document.getElementById('cbackdrop');
+    const frame=document.getElementById('cframe');
+    const closeBtn=document.getElementById('cclose');
+    let lastFocus=null, current=null;
+
+    function open(slug, push){
+        if(current===slug && drawer.classList.contains('open')) return;
+        current=slug;
+        lastFocus=document.activeElement;
+        drawer.classList.add('loading');
+        frame.onload=()=>drawer.classList.remove('loading');
+        frame.src='work/'+slug+'.html?embed=1';
+        document.body.classList.add('drawer-open');
+        backdrop.classList.add('open');
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden','false');
+        closeBtn.focus();
+        if(push){ history.pushState({caseSlug:slug},'', '#case='+slug); }
+    }
+    function close(){
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.classList.remove('drawer-open');
+        drawer.setAttribute('aria-hidden','true');
+        current=null;
+        setTimeout(()=>{ if(!drawer.classList.contains('open')){ frame.src='about:blank'; } },400);
+        if(lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    // close by history so Back button works and URL clears
+    function requestClose(){
+        if(location.hash.indexOf('#case=')===0){ history.back(); }
+        else { close(); }
+    }
+
+    // Intercept case-study links (any anchor pointing at work/*.html)
+    document.addEventListener('click',function(e){
+        const a=e.target.closest('a[href^="work/"]');
+        if(!a) return;
+        if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button!==0) return; // let new-tab work
+        const m=a.getAttribute('href').match(/work\/([^.\/?#]+)\.html/);
+        if(!m) return;
+        e.preventDefault();
+        open(m[1], true);
+    });
+
+    closeBtn.addEventListener('click', requestClose);
+    backdrop.addEventListener('click', requestClose);
+    document.addEventListener('keydown',function(e){
+        if(e.key==='Escape' && drawer.classList.contains('open')) requestClose();
+    });
+
+    // Deep-linking: Back/Forward and initial load
+    window.addEventListener('popstate',function(){
+        const m=location.hash.match(/^#case=([^&]+)/);
+        if(m) open(decodeURIComponent(m[1]), false);
+        else if(drawer.classList.contains('open')) close();
+    });
+    const init=location.hash.match(/^#case=([^&]+)/);
+    if(init) open(decodeURIComponent(init[1]), false);
+})();
 </script>
 </body>
 </html>

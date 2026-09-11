@@ -67,6 +67,11 @@ nav{position:fixed;top:0;width:100%;z-index:50;display:flex;justify-content:spac
 .shots a{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);transition:transform .25s,border-color .25s}
 .shots a:hover{transform:translateY(-5px);border-color:rgba(56,225,255,.55)}
 .shots img{display:block;width:100%;height:auto}
+/* embedded (inside the portfolio drawer) — hide chrome for a clean preview */
+html.embed nav{display:none}
+html.embed footer{display:none}
+html.embed .crumb{display:none}
+html.embed .chero{padding-top:2.8rem}
 footer{text-align:center;padding:2.5rem 2rem;border-top:1px solid var(--line);color:var(--txt2);font-size:.85rem}
 footer .grad{font-weight:700}
 @media(max-width:600px){.chero{padding:7rem 6vw 2.5rem}.nav-links a:not(.nav-cta){display:none}}
