@@ -191,6 +191,43 @@
         .proj-actions .proj-link{margin-top:0}
         .proj-play{font-family:'JetBrains Mono';font-size:.73rem;color:var(--txt2);text-decoration:none;transition:color .2s}
         .proj-play:hover{color:var(--orange)}
+        /* ── Featured front-cover card ── */
+        .feat{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:center;border-radius:20px;padding:2.2rem;margin-bottom:1.8rem}
+        .feat-shots{display:flex;gap:.7rem;align-items:center;justify-content:center}
+        .feat-shots img{width:32%;border-radius:14px;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.5)}
+        .feat-shots img:nth-child(2){transform:translateY(-20px)}
+        .feat-kicker{font-family:'JetBrains Mono';font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--txt2);margin-bottom:1rem}
+        .feat-head{display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem}
+        .feat-head .fl{width:52px;height:52px;border-radius:13px;overflow:hidden;background:#fff;flex-shrink:0}
+        .feat-head .fl img{width:100%;height:100%;object-fit:cover}
+        .feat-head h3{font-family:'Space Grotesk';font-size:1.9rem;font-weight:700;line-height:1.05}
+        .feat-head .sub{color:var(--txt2);font-size:.9rem;font-family:'JetBrains Mono'}
+        .feat-pill{border:1px solid rgba(56,225,255,.3);background:rgba(56,225,255,.07);border-radius:12px;padding:.85rem 1.05rem;font-size:.9rem;line-height:1.5;color:#c8d8f0;margin-bottom:1.3rem}
+        .feat-pill b{color:#5eead4}
+        .feat-desc{color:#c3cbe6;margin-bottom:1.6rem;max-width:520px}
+        .feat-cta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+        .feat-stat{display:flex;flex-direction:column}
+        .feat-stat .num{font-family:'Space Grotesk';font-size:1.8rem;font-weight:700;line-height:1}
+        .feat-stat .lbl{font-family:'JetBrains Mono';font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--txt2)}
+        .feat-btn{padding:.85rem 1.6rem;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;color:#06121f;background:var(--grad);box-shadow:0 8px 30px rgba(56,225,255,.3);transition:.2s;display:inline-flex;align-items:center;gap:.5rem}
+        .feat-btn:hover{transform:translateY(-2px)}
+        /* ── Showcase grid ── */
+        .showcase{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+        .vcard{border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+        .vcard-media{display:flex;height:210px;overflow:hidden;background:var(--bg3);position:relative;border-bottom:1px solid var(--line)}
+        .vcard-media img{width:50%;height:100%;object-fit:cover;object-position:top}
+        .vcard-media.single img{width:100%;object-fit:cover;object-position:center}
+        .vcard-media.grad{display:grid;place-items:center;background:linear-gradient(135deg,#141a38,#1b2247)}
+        .vcard-media.grad i{font-size:2.8rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .vcard-media .dl{position:absolute;top:10px;right:10px;font-family:'JetBrains Mono';font-size:.68rem;background:rgba(6,10,20,.6);backdrop-filter:blur(4px);color:#bff8ee;padding:.28rem .6rem;border-radius:100px;border:1px solid rgba(56,225,255,.45)}
+        .vcard-body{padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+        .vcard-top{display:flex;align-items:center;gap:.7rem}
+        .vcard-top .vl{width:34px;height:34px;border-radius:9px;overflow:hidden;background:#fff;flex-shrink:0}
+        .vcard-top .vl img{width:100%;height:100%;object-fit:cover}
+        .vcard-top h4{font-family:'Space Grotesk';font-size:1.08rem;font-weight:700}
+        .vcard-body p{color:var(--txt2);font-size:.85rem;line-height:1.5;flex:1}
+        .vcard .proj-actions{margin-top:.3rem}
+        @media(max-width:760px){.feat{grid-template-columns:1fr;gap:1.6rem;padding:1.5rem}.feat-shots img:nth-child(2){transform:none}}
 
         /* ── EDUCATION ── */
         .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
@@ -474,84 +511,119 @@
             <p class="sec-sub">Applications I've engineered across mobile and cloud, many live on Google Play</p>
             <div class="sec-line"></div>
         </div>
-        <div class="projects-grid">
-            <div class="proj-card gborder reveal">
-                <div class="proj-head"><div class="proj-ico"><i class="fas fa-gas-pump"></i></div><span class="proj-date">2025 to 2026</span></div>
-                <h3 class="proj-name">ENOC Hub</h3>
-                <p class="proj-desc">A large-scale Kotlin Multiplatform (KMP) super app for Emirates National Oil Company, sharing business logic and UI across Android and iOS via Jetpack Compose Multiplatform, built with secure data handling and modern cybersecurity best practices.</p>
-                <div class="proj-tech"><span class="tech-tag">Kotlin Multiplatform</span><span class="tech-tag">Compose Multiplatform</span><span class="tech-tag">Mobile Security</span></div>
+        <div class="feat gborder reveal">
+            <div class="feat-shots">
+                <img src="assets/barns/barns-1.webp" alt="Barns rewards screen" loading="lazy">
+                <img src="assets/barns/barns-2.webp" alt="Barns home screen" loading="lazy">
+                <img src="assets/barns/barns-3.webp" alt="Barns menu screen" loading="lazy">
             </div>
-            <div class="proj-card gborder reveal d1">
-                <div class="proj-head"><div class="proj-ico logo"><img src="assets/cofe/cofe-logo.webp" alt="COFE App logo"></div><span class="proj-date">Live on Google Play</span></div>
-                <h3 class="proj-name">COFE App</h3>
-                <p class="proj-desc">A flagship coffee marketplace app connecting users to specialty coffee brands, with advanced mobile ordering features that drove a 50% increase in user acquisition and a 25% reduction in app load times.</p>
-                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">Android</span><span class="tech-tag">Firebase</span></div>
-                <div class="proj-actions">
-                    <a href="work/cofe-app.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://play.google.com/store/apps/details?id=com.cofedistrict" target="_blank" class="proj-play">Google Play ↗</a>
+            <div class="feat-info">
+                <p class="feat-kicker">White-label &nbsp;·&nbsp; F&amp;B &nbsp;·&nbsp; Saudi Arabia</p>
+                <div class="feat-head">
+                    <div class="fl"><img src="assets/barns/barns-logo.webp" alt="Barns logo"></div>
+                    <div><h3>Barns</h3><span class="sub">100K+ installs from one codebase</span></div>
+                </div>
+                <div class="feat-pill"><b>Configuration over forking:</b> one Kotlin and Compose build, a separately branded app per coffee chain.</div>
+                <p class="feat-desc">Menu, loyalty, pickup and payments for one of Saudi Arabia's largest coffee chains, shipped from the shared white-label platform that powers multiple live coffee brands.</p>
+                <div class="feat-cta">
+                    <div class="feat-stat"><span class="num grad-text">100K+</span><span class="lbl">Downloads</span></div>
+                    <div class="feat-stat"><span class="num grad-text">5.0</span><span class="lbl">Rating &nbsp;·&nbsp; 962 reviews</span></div>
+                    <a href="work/barns.html" class="feat-btn">Read case study →</a>
                 </div>
             </div>
-            <div class="proj-card gborder reveal d2">
-                <div class="proj-head"><div class="proj-ico"><i class="fas fa-cloud"></i></div><span class="proj-date">Platform</span></div>
-                <h3 class="proj-name">COFE Cloud</h3>
-                <p class="proj-desc">A white-label solution for prominent coffee brands where simply changing the theme and color attributes prepares an entire branded application. Ships through fully automated CI/CD pipelines on Bitrise.</p>
-                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">Bitrise CI</span></div>
-            </div>
-            <div class="proj-card gborder reveal">
-                <div class="proj-head"><div class="proj-ico logo"><img src="assets/caribou/caribou-logo.webp" alt="Caribou logo"></div><span class="proj-date">Live on Google Play</span></div>
-                <h3 class="proj-name">Caribou Rewards</h3>
-                <p class="proj-desc">A branded coffee ordering and loyalty app built on the COFE Cloud white-label platform, delivering a fully themed experience with rewards and seamless mobile ordering.</p>
-                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
-                <div class="proj-actions">
-                    <a href="work/caribou-rewards.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://play.google.com/store/apps/details?id=cloud.cofe.caribou" target="_blank" class="proj-play">Google Play ↗</a>
+        </div>
+
+        <div class="showcase">
+            <div class="vcard gborder reveal">
+                <a href="work/ictp.html" class="vcard-media">
+                    <img src="assets/ictp/ictp-1.webp" alt="Smart ICT Police splash" loading="lazy">
+                    <img src="assets/ictp/ictp-2.webp" alt="Smart ICT Police services" loading="lazy">
+                    <span class="dl">100K+ &#8595;</span>
+                </a>
+                <div class="vcard-body">
+                    <div class="vcard-top"><div class="vl"><img src="assets/ictp/ictp-logo.webp" alt="ICT Police logo"></div><h4>E-Challan (ITP)</h4></div>
+                    <p>Digital traffic-fine ticketing for the Islamabad police with JS Mobile Wallet payments. A government-scale deployment.</p>
+                    <div class="proj-actions"><a href="work/ictp.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a><a href="https://play.google.com/store/apps/details?id=pk.pitb.gov.ictp" target="_blank" class="proj-play">Google Play &#8599;</a></div>
                 </div>
             </div>
-            <div class="proj-card gborder reveal d1">
-                <div class="proj-head"><div class="proj-ico logo"><img src="assets/filli/filli-logo.webp" alt="FiLLi logo"></div><span class="proj-date">Live on Google Play</span></div>
-                <h3 class="proj-name">FiLLi</h3>
-                <p class="proj-desc">A branded coffee brand app powered by COFE Cloud, using the same robust ordering engine, uniquely themed for the FiLLi brand and shipped to the Play Store.</p>
-                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
-                <div class="proj-actions">
-                    <a href="work/filli.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://play.google.com/store/apps/details?id=cloud.cofe.filli" target="_blank" class="proj-play">Google Play ↗</a>
+
+            <div class="vcard gborder reveal">
+                <a href="work/cofe-app.html" class="vcard-media">
+                    <img src="assets/cofe/cofe-1.webp" alt="COFE App home" loading="lazy">
+                    <img src="assets/cofe/cofe-7.webp" alt="COFE App marketplace" loading="lazy">
+                    <span class="dl">Flagship</span>
+                </a>
+                <div class="vcard-body">
+                    <div class="vcard-top"><div class="vl"><img src="assets/cofe/cofe-logo.webp" alt="COFE App logo"></div><h4>COFE App</h4></div>
+                    <p>The flagship COFE coffee marketplace. Advanced mobile ordering drove a 50% lift in user acquisition and 25% faster load times.</p>
+                    <div class="proj-actions"><a href="work/cofe-app.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a><a href="https://play.google.com/store/apps/details?id=com.cofedistrict" target="_blank" class="proj-play">Google Play &#8599;</a></div>
                 </div>
             </div>
-            <div class="proj-card gborder reveal d2">
-                <div class="proj-head"><div class="proj-ico logo"><img src="assets/barns/barns-logo.webp" alt="Barns logo"></div><span class="proj-date">Live on Google Play</span></div>
-                <h3 class="proj-name">Barns</h3>
-                <p class="proj-desc">Another live white-label coffee app on the COFE Cloud platform, demonstrating how a single theme-driven architecture powers multiple production brands.</p>
-                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">White-label</span></div>
-                <div class="proj-actions">
-                    <a href="work/barns.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://play.google.com/store/apps/details?id=cloud.cofe.barns" target="_blank" class="proj-play">Google Play ↗</a>
+
+            <div class="vcard gborder reveal">
+                <div class="vcard-media grad"><i class="fas fa-gas-pump"></i><span class="dl">iOS + Android</span></div>
+                <div class="vcard-body">
+                    <div class="vcard-top"><div class="vl" style="display:grid;place-items:center;background:linear-gradient(135deg,#38e1ff,#5eead4)"><i class="fas fa-gas-pump" style="color:#06121f;font-size:.85rem"></i></div><h4>ENOC Hub</h4></div>
+                    <p>A large-scale Kotlin Multiplatform super app for Emirates National Oil Company, sharing business logic and UI across Android and iOS via Compose Multiplatform.</p>
+                    <div class="proj-tech" style="margin-top:.3rem"><span class="tech-tag">KMP</span><span class="tech-tag">Compose MP</span><span class="tech-tag">Security</span></div>
                 </div>
             </div>
-            <div class="proj-card gborder reveal">
-                <div class="proj-head"><div class="proj-ico logo"><img src="assets/nudg/nudg-logo.webp" alt="NUDG logo"></div><span class="proj-date">Live on Google Play</span></div>
-                <h3 class="proj-name">NUDG Fast &amp; Safe Taxi Booking</h3>
-                <p class="proj-desc">A go to solution for hassle-free taxi bookings. Schedule trips with ease, track your driver in real time on Google Maps using Sockets, and pay seamlessly through the JUDO payment provider.</p>
-                <div class="proj-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">Socket.IO</span><span class="tech-tag">Google Maps</span><span class="tech-tag">Judo</span></div>
-                <div class="proj-actions">
-                    <a href="work/nudg.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://play.google.com/store/apps/details?id=com.dggroup.nudg.user.app" target="_blank" class="proj-play">Google Play ↗</a>
+
+            <div class="vcard gborder reveal">
+                <a href="work/caribou-rewards.html" class="vcard-media">
+                    <img src="assets/caribou/caribou-1.webp" alt="Caribou menu" loading="lazy">
+                    <img src="assets/caribou/caribou-2.webp" alt="Caribou gifting" loading="lazy">
+                    <span class="dl">10K+ &#8595;</span>
+                </a>
+                <div class="vcard-body">
+                    <div class="vcard-top"><div class="vl"><img src="assets/caribou/caribou-logo.webp" alt="Caribou logo"></div><h4>Caribou Rewards</h4></div>
+                    <p>A branded ordering and loyalty app for Caribou Coffee, delivered on the COFE Cloud white-label platform.</p>
+                    <div class="proj-actions"><a href="work/caribou-rewards.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a><a href="https://play.google.com/store/apps/details?id=cloud.cofe.caribou" target="_blank" class="proj-play">Google Play &#8599;</a></div>
                 </div>
             </div>
-            <div class="proj-card gborder reveal d1">
-                <div class="proj-head"><div class="proj-ico logo"><img src="assets/ictp/ictp-logo.webp" alt="ICT Police app logo"></div><span class="proj-date">Live on Google Play</span></div>
-                <h3 class="proj-name">E-Challan (ITP)</h3>
-                <p class="proj-desc">An innovative digital ticketing solution designed for the Islamabad Traffic Police that simplifies the payment of traffic fines, letting violators pay quickly through JS Mobile Wallet integration.</p>
-                <div class="proj-tech"><span class="tech-tag">Android</span><span class="tech-tag">Payments</span><span class="tech-tag">Govt Tech</span></div>
-                <div class="proj-actions">
-                    <a href="work/ictp.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://play.google.com/store/apps/details?id=pk.pitb.gov.ictp" target="_blank" class="proj-play">Google Play ↗</a>
+
+            <div class="vcard gborder reveal">
+                <a href="work/filli.html" class="vcard-media">
+                    <img src="assets/filli/filli-rewards.webp" alt="FiLLi rewards" loading="lazy">
+                    <img src="assets/filli/filli-curbside.webp" alt="FiLLi curbside" loading="lazy">
+                    <span class="dl">10K+ &#8595; &nbsp;·&nbsp; 4.0&#9733;</span>
+                </a>
+                <div class="vcard-body">
+                    <div class="vcard-top"><div class="vl"><img src="assets/filli/filli-logo.webp" alt="FiLLi logo"></div><h4>FiLLi</h4></div>
+                    <p>The branded coffee app for FiLLi Cafe UAE, powered by the same COFE Cloud ordering engine and uniquely themed.</p>
+                    <div class="proj-actions"><a href="work/filli.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a><a href="https://play.google.com/store/apps/details?id=cloud.cofe.filli" target="_blank" class="proj-play">Google Play &#8599;</a></div>
                 </div>
             </div>
-            <div class="proj-card gborder reveal d2">
-                <div class="proj-head"><div class="proj-ico"><i class="fas fa-calculator"></i></div><span class="proj-date">2018 to 2020</span></div>
-                <h3 class="proj-name">Svvish</h3>
-                <p class="proj-desc">An accountancy and taxation app that streamlines access to services, enables convenient upload of transactional data and daily correspondence, and gives SMEs critical financial insights, using MPAndroidChart for complex data visualizations.</p>
-                <div class="proj-tech"><span class="tech-tag">Android</span><span class="tech-tag">MPAndroidChart</span><span class="tech-tag">Fintech</span></div>
+
+            <div class="vcard gborder reveal">
+                <a href="work/nudg.html" class="vcard-media">
+                    <img src="assets/nudg/nudg-1.webp" alt="NUDG home" loading="lazy">
+                    <img src="assets/nudg/nudg-4.webp" alt="NUDG live tracking" loading="lazy">
+                    <span class="dl">Real-time</span>
+                </a>
+                <div class="vcard-body">
+                    <div class="vcard-top"><div class="vl"><img src="assets/nudg/nudg-logo.webp" alt="NUDG logo"></div><h4>NUDG Taxi Booking</h4></div>
+                    <p>A ride-hailing app I led at DG Cars, with real-time driver tracking on Google Maps via Sockets and JUDO payments.</p>
+                    <div class="proj-actions"><a href="work/nudg.html" class="proj-link"><span>View case study</span> <i class="fas fa-arrow-right"></i></a><a href="https://play.google.com/store/apps/details?id=com.dggroup.nudg.user.app" target="_blank" class="proj-play">Google Play &#8599;</a></div>
+                </div>
+            </div>
+
+            <div class="vcard gborder reveal">
+                <div class="vcard-media grad"><i class="fas fa-cloud"></i><span class="dl">Platform</span></div>
+                <div class="vcard-body">
+                    <div class="vcard-top"><div class="vl" style="display:grid;place-items:center;background:linear-gradient(135deg,#38e1ff,#5eead4)"><i class="fas fa-cloud" style="color:#06121f;font-size:.85rem"></i></div><h4>COFE Cloud</h4></div>
+                    <p>The white-label platform behind the coffee brands above. Changing theme and config produces an entire branded app, shipped via automated CI/CD on Bitrise.</p>
+                    <div class="proj-tech" style="margin-top:.3rem"><span class="tech-tag">Kotlin</span><span class="tech-tag">KMP</span><span class="tech-tag">Bitrise CI</span></div>
+                </div>
+            </div>
+
+            <div class="vcard gborder reveal">
+                <div class="vcard-media grad"><i class="fas fa-calculator"></i><span class="dl">Fintech</span></div>
+                <div class="vcard-body">
+                    <div class="vcard-top"><div class="vl" style="display:grid;place-items:center;background:linear-gradient(135deg,#38e1ff,#5eead4)"><i class="fas fa-calculator" style="color:#06121f;font-size:.85rem"></i></div><h4>Svvish</h4></div>
+                    <p>An accountancy and taxation app giving SMEs critical financial insights, with complex data visualizations using MPAndroidChart.</p>
+                    <div class="proj-tech" style="margin-top:.3rem"><span class="tech-tag">Android</span><span class="tech-tag">MPAndroidChart</span><span class="tech-tag">Fintech</span></div>
+                </div>
             </div>
         </div>
     </div>
